@@ -1,0 +1,74 @@
+---
+import { siteConfig } from '../config/releases';
+const base = siteConfig.baseUrl;
+---
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href={`${base}/`} class="nav-brand">{siteConfig.title}</a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href={`${base}/#releases`}>Releases</a></li>
+        <li><a href={`${base}/about`}>About</a></li>
+        <li>
+          <a href={siteConfig.soundcloudUrl} target="_blank" rel="noopener noreferrer" class="nav-external">
+            SoundCloud <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: color-mix(in srgb, var(--color-bg) 90%, transparent);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(6px);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  .nav-brand:hover {
+    color: var(--color-accent);
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+  .nav-external {
+    border: 1px solid var(--color-border);
+    padding: 0.3em 0.8em;
+  }
+  .nav-external:hover {
+    border-color: var(--color-accent) !important;
+  }
+</style>

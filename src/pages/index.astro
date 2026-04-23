@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReleaseCard from '../components/ReleaseCard.astro';
+import { releases, siteConfig } from '../config/releases';
+
+const base = siteConfig.baseUrl;
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-seal" aria-hidden="true">
+      <img src={`${base}/images/seal.png`} alt="" onerror="this.style.display='none'" />
+    </div>
+    <div class="hero-content container">
+      <h1 class="hero-title anim-title">{siteConfig.title}</h1>
+      <hr class="gold-rule hero-rule anim-rule" />
+      <p class="hero-tagline anim-tagline">{siteConfig.tagline}</p>
+      <a href="#releases" class="btn anim-cta">Listen</a>
+    </div>
+  </section>
+
+  <!-- Releases grid -->
+  <section id="releases" class="section" aria-labelledby="releases-heading">
+    <div class="container">
+      <h2 class="section-heading" id="releases-heading">Releases</h2>
+      <div class="releases-grid">
+        {releases.map((release) => (
+          <ReleaseCard release={release} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About strip -->
+  <section id="about" class="section about-strip" aria-labelledby="about-heading">
+    <div class="container">
+      <hr class="gold-rule" />
+      <div class="about-inner">
+        <div class="about-text">
+          <h2 class="section-heading" id="about-heading">About</h2>
+          <p>
+            Borrowed Tongues is a music project that takes songs from constructed languages — the invented
+            tongues of fictional worlds — and pairs them with genres that fit their culture. Every lyric
+            is adapted from public domain literature. Every language is real, in the sense that someone
+            built grammar rules and a vocabulary and a community of speakers grew up around it.
+          </p>
+          <p style="margin-top:1rem;">
+            Music is generated with AI assistance (Suno). Translations are assisted by AI and reviewed
+            against published grammars. Source texts are entirely public domain. The project treats
+            constructed languages with the same respect it treats the source material — as real creative
+            work worth engaging with seriously.
+          </p>
+        </div>
+        <div class="about-links">
+          <a href={siteConfig.soundcloudUrl} target="_blank" rel="noopener noreferrer" class="btn">
+            SoundCloud ↗
+          </a>
+          <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" class="btn">
+            GitHub ↗
+          </a>
+          <a href={`${base}/about`} class="btn">Full Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-seal {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-seal img {
+    width: min(600px, 70vw);
+    height: auto;
+    opacity: 0.06;
+    filter: grayscale(1);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-rule {
+    width: min(320px, 60vw);
+  }
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding-block: 5rem;
+  }
+  .section-heading {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    color: var(--color-accent);
+  }
+
+  /* ── Grid ── */
+  .releases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .releases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── About strip ── */
+  .about-strip {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+    padding-top: 2rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+  .about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+    }
+    .about-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+</style>

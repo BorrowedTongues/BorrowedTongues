@@ -1,0 +1,46 @@
+---
+import { isPlaceholderUrl, buildEmbedUrl } from '../config/releases';
+
+interface Props {
+  url: string;
+  title: string;
+  height?: number;
+}
+
+const { url, title, height = 166 } = Astro.props;
+const isPlaceholder = isPlaceholderUrl(url);
+const embedUrl = isPlaceholder ? '' : buildEmbedUrl(url);
+---
+
+{isPlaceholder ? (
+  <div class="sc-placeholder" role="status" aria-label="Audio coming soon">
+    <span>Coming Soon</span>
+  </div>
+) : (
+  <div class="sc-embed" data-sc-embed>
+    <iframe
+      width="100%"
+      height={height}
+      src={embedUrl}
+      title={title}
+      allow="autoplay"
+      loading="lazy"
+    ></iframe>
+  </div>
+)}
+
+<script>
+  const embeds = document.querySelectorAll<HTMLElement>('[data-sc-embed]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  embeds.forEach((el) => observer.observe(el));
+</script>

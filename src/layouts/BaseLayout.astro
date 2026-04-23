@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/releases';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  title,
+  description = siteConfig.description,
+  ogImage,
+  ogType = 'website',
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${siteConfig.title}` : `${siteConfig.title} — ${siteConfig.tagline}`;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://borrowedtongues.github.io').href;
+const resolvedOgImage = ogImage
+  ? new URL(`${siteConfig.baseUrl}/images/${ogImage}`, 'https://borrowedtongues.github.io').href
+  : new URL(`${siteConfig.baseUrl}/images/og-default.jpg`, 'https://borrowedtongues.github.io').href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteConfig.title} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href={`${siteConfig.baseUrl}/images/seal.png`} />
+    <link rel="icon" type="image/svg+xml" href={`${siteConfig.baseUrl}/favicon.svg`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Nav />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

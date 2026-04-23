@@ -1,0 +1,59 @@
+---
+import { siteConfig } from '../config/releases';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <hr class="gold-rule" />
+    <div class="footer-content">
+      <p class="footer-name">{siteConfig.title}</p>
+      <p class="footer-copy">
+        © {year} &nbsp;·&nbsp;
+        <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        &nbsp;·&nbsp;
+        <a href={siteConfig.soundcloudUrl} target="_blank" rel="noopener noreferrer">SoundCloud ↗</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 6rem;
+    padding-bottom: 2.5rem;
+  }
+  .gold-rule {
+    margin-bottom: 2rem;
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+  }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+  }
+  .footer-copy a {
+    color: var(--color-text-secondary);
+  }
+  .footer-copy a:hover {
+    color: var(--color-accent);
+  }
+</style>

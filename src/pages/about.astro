@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/releases';
+
+const base = siteConfig.baseUrl;
+
+const languagePairings = [
+  { language: 'tlhIngan Hol (Klingon)', genre: 'Acid Punk', note: 'Releases available', available: true },
+  { language: 'Rihannsu (Romulan)', genre: 'J-Pop', note: 'Coming', available: false },
+  { language: 'Valyrian (High Valyrian)', genre: 'Grunge', note: 'Coming', available: false },
+  { language: "Golic Vulcan (Vulcan)", genre: 'Ambient / Post-Rock', note: 'Coming', available: false },
+  { language: 'Dothraki', genre: 'Steppe / Throat Singing', note: 'Coming', available: false },
+  { language: 'Dovahzul (Dragon Language)', genre: 'Nordic Metal Punk', note: 'Coming', available: false },
+];
+---
+
+<BaseLayout title="About" description={`About ${siteConfig.title} — ${siteConfig.description}`}>
+  <div class="about-page container">
+
+    <header class="page-header">
+      <h1 class="page-title">About Borrowed Tongues</h1>
+      <hr class="gold-rule" />
+      <p class="page-intro">
+        Ancient stories. Alien tongues. Acid punk.
+      </p>
+    </header>
+
+    <section class="content-section" aria-labelledby="philosophy-heading">
+      <h2 id="philosophy-heading">The Idea</h2>
+      <p>
+        Borrowed Tongues started with one question: what does Beowulf sound like in Klingon? Not as
+        a novelty, but as a genuine creative exercise. Klingon is a warrior culture's language —
+        built by a linguist to feel harsh, clipped, aggressive. Beowulf is a warrior culture's poem.
+        Putting them together felt obvious once the question was asked.
+      </p>
+      <p>
+        From there, the project expanded into a framework: take a constructed language, find a public
+        domain text that resonates with that language's culture, and choose a genre that fits both.
+        The result is something that shouldn't work, and kind of does.
+      </p>
+      <p>
+        Every language here is "fictional" in the sense that it was invented for a story. Every
+        language is also real in the sense that someone built grammar, vocabulary, and a community
+        of speakers grew up around it. These are not costume languages. They are creative work
+        by serious linguists, and they deserve to be treated that way.
+      </p>
+    </section>
+
+    <section class="content-section" aria-labelledby="pairings-heading">
+      <h2 id="pairings-heading">Language &amp; Genre Pairings</h2>
+      <p class="section-note">
+        Each language is matched to a genre based on the culture it comes from, not the culture that
+        created it. Klingon warriors get acid punk. Vulcan monks get ambient post-rock. The genre
+        is a translation too.
+      </p>
+      <table class="pairings-table" role="table">
+        <thead>
+          <tr>
+            <th scope="col">Language</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {languagePairings.map((row) => (
+            <tr class={row.available ? 'row-available' : 'row-coming'}>
+              <td class="lang-cell">{row.language}</td>
+              <td class="genre-cell">{row.genre}</td>
+              <td class="status-cell">
+                {row.available
+                  ? <a href={`${base}/#releases`} class="status-link">Listen ↗</a>
+                  : <span class="status-coming">Coming</span>
+                }
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section" aria-labelledby="credits-heading">
+      <h2 id="credits-heading">Credits &amp; Transparency</h2>
+      <ul class="credits-list">
+        <li>
+          <strong>Music generation:</strong> Tracks are created with
+          <a href="https://suno.com" target="_blank" rel="noopener noreferrer">Suno</a>. The compositions,
+          arrangements, and prompts are original; the rendering is AI-assisted.
+        </li>
+        <li>
+          <strong>Translation:</strong> Lyrics are translated with AI assistance and reviewed against
+          published grammars and community resources. Errors are the project's own.
+        </li>
+        <li>
+          <strong>Source texts:</strong> All adapted texts are public domain. Beowulf. Sir Gawain and
+          the Green Knight. More to follow. The adaptation is transformative; the source belongs
+          to everyone.
+        </li>
+        <li>
+          <strong>Klingon language:</strong> Used in accordance with the Language Creation Society's
+          position on constructed language copyright. Klingon was created by Marc Okrand. The LCS
+          holds that constructed languages are not copyrightable, and this project proceeds on that basis.
+        </li>
+        <li>
+          <strong>Other constructed languages:</strong> All languages used here were created by real
+          linguists for real projects. Credit is given where it is due, and the work is treated with respect.
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-section cta-section" aria-labelledby="listen-heading">
+      <h2 id="listen-heading">Listen</h2>
+      <p>All releases are available on SoundCloud.</p>
+      <a href={siteConfig.soundcloudUrl} target="_blank" rel="noopener noreferrer" class="btn">
+        SoundCloud ↗
+      </a>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-block: 4rem 6rem;
+    max-width: 780px;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+  }
+  .page-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .gold-rule {
+    margin-bottom: 1rem;
+  }
+  .page-intro {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-top: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 3.5rem;
+  }
+  .content-section h2 {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .content-section p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .section-note {
+    font-style: italic;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* ── Table ── */
+  .pairings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  .pairings-table th {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    text-align: left;
+    padding: 0.6rem 1rem 0.6rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .pairings-table td {
+    padding: 0.75rem 1rem 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+  }
+  .lang-cell {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-primary);
+  }
+  .genre-cell {
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+  .row-available .lang-cell {
+    color: var(--color-accent);
+  }
+  .status-link {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent-dim);
+    padding: 0.2em 0.5em;
+  }
+  .status-coming {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    opacity: 0.5;
+  }
+
+  /* ── Credits ── */
+  .credits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .credits-list li {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-border);
+  }
+  .credits-list strong {
+    color: var(--color-text-primary);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── CTA ── */
+  .cta-section p {
+    margin-bottom: 1.25rem;
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import { isPlaceholderLyrics } from '../config/releases';
+
+interface Props {
+  lyrics?: string;
+  trackTitle: string;
+  id: string;
+}
+
+const { lyrics, trackTitle, id } = Astro.props;
+const shouldHide = isPlaceholderLyrics(lyrics);
+---
+
+{!shouldHide && (
+  <div class="lyrics-section">
+    <button
+      class="lyrics-toggle"
+      aria-expanded="false"
+      aria-controls={`lyrics-${id}`}
+      data-lyrics-toggle
+    >
+      <span class="arrow" aria-hidden="true">▶</span>
+      <span>Lyrics — {trackTitle}</span>
+    </button>
+    <div class="lyrics-body" id={`lyrics-${id}`} role="region" aria-label={`Lyrics for ${trackTitle}`}>
+      <pre class="lyrics-text">{lyrics}</pre>
+    </div>
+  </div>
+)}
+
+<script>
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-lyrics-toggle]');
+  toggles.forEach((btn) => {
+    btn.addEventListener('click', () => toggle(btn));
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle(btn);
+      }
+    });
+  });
+
+  function toggle(btn: HTMLButtonElement) {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    const bodyId = btn.getAttribute('aria-controls');
+    if (!bodyId) return;
+    const body = document.getElementById(bodyId);
+    if (body) body.classList.toggle('open', !expanded);
+  }
+</script>

@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SoundCloudEmbed from '../../components/SoundCloudEmbed.astro';
+import LyricsExpander from '../../components/LyricsExpander.astro';
+import { releases, siteConfig } from '../../config/releases';
+import type { Release } from '../../config/releases';
+
+export function getStaticPaths() {
+  return releases.map((release) => ({
+    params: { id: release.id },
+    props: { release },
+  }));
+}
+
+interface Props {
+  release: Release;
+}
+
+const { release } = Astro.props;
+const base = siteConfig.baseUrl;
+---
+
+<BaseLayout
+  title={release.title}
+  description={release.description}
+  ogImage={release.coverArt}
+  ogType="music.album"
+>
+  <article class="release-page">
+    <!-- Header / hero -->
+    <div class="release-hero">
+      <div class="container">
+        <div class="release-header">
+          <!-- Cover art -->
+          <div class="release-art">
+            <img
+              src={`${base}/images/${release.coverArt}`}
+              alt={`Cover art for ${release.title}`}
+              class="cover-img"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="cover-placeholder" style="display:none; aspect-ratio:1; min-height:280px;">
+              <span>{release.title}</span>
+            </div>
+          </div>
+
+          <!-- Metadata -->
+          <div class="release-meta">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href={`${base}/`}>Home</a>
+              <span aria-hidden="true"> / </span>
+              <a href={`${base}/#releases`}>Releases</a>
+            </nav>
+
+            <div class="meta-badges">
+              <span class="badge badge--accent">{release.language}</span>
+              <span class="badge badge--punk">{release.genre}</span>
+              <span class="badge">{release.type === 'album' ? 'Album' : 'Single'}</span>
+            </div>
+
+            <h1 class="release-title">{release.title}</h1>
+            <p class="release-subtitle">{release.subtitle}</p>
+
+            <dl class="meta-list">
+              <div class="meta-row">
+                <dt>Source</dt>
+                <dd>{release.sourceText}</dd>
+              </div>
+              <div class="meta-row">
+                <dt>Year</dt>
+                <dd>{release.year}</dd>
+              </div>
+              {release.type === 'album' && (
+                <div class="meta-row">
+                  <dt>Tracks</dt>
+                  <dd>{release.tracks.length}</dd>
+                </div>
+              )}
+            </dl>
+
+            <p class="release-description">{release.description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player section -->
+    <div class="container player-section">
+      {release.type === 'single' ? (
+        <>
+          <h2 class="section-label">Listen</h2>
+          <SoundCloudEmbed
+            url={release.tracks[0].soundcloudUrl}
+            title={`${release.tracks[0].title} — ${release.title}`}
+            height={166}
+          />
+          <LyricsExpander
+            lyrics={release.tracks[0].lyrics}
+            trackTitle={release.tracks[0].title}
+            id={`${release.id}-0`}
+          />
+        </>
+      ) : (
+        <>
+          {release.soundcloudPlaylistUrl && (
+            <>
+              <h2 class="section-label">Full Album</h2>
+              <SoundCloudEmbed
+                url={release.soundcloudPlaylistUrl}
+                title={`${release.title} — Full Playlist`}
+                height={450}
+              />
+            </>
+          )}
+
+          <h2 class="section-label" style="margin-top:3rem;">Tracks</h2>
+          <ol class="track-list">
+            {release.tracks.map((track, i) => (
+              <li class="track-item">
+                <div class="track-header">
+                  <span class="track-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="track-title">{track.title}</span>
+                </div>
+                <div class="track-embed">
+                  <SoundCloudEmbed
+                    url={track.soundcloudUrl}
+                    title={`${track.title} — ${release.title}`}
+                    height={166}
+                  />
+                </div>
+                <LyricsExpander
+                  lyrics={track.lyrics}
+                  trackTitle={track.title}
+                  id={`${release.id}-${i}`}
+                />
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .release-page {
+    padding-bottom: 5rem;
+  }
+
+  /* ── Hero strip ── */
+  .release-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding-block: 3rem;
+  }
+  .release-header {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .release-header {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+  }
+
+  /* ── Cover art ── */
+  .release-art {
+    flex-shrink: 0;
+  }
+  .cover-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+  }
+
+  /* ── Metadata ── */
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .breadcrumb a {
+    color: var(--color-text-secondary);
+  }
+  .breadcrumb a:hover {
+    color: var(--color-accent);
+  }
+
+  .meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .release-title {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  .release-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .meta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .meta-row dt {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    width: 4rem;
+    flex-shrink: 0;
+  }
+  .meta-row dd {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+  }
+
+  .release-description {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Player section ── */
+  .player-section {
+    margin-top: 3rem;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+  }
+
+  /* ── Track list ── */
+  .track-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .track-item {
+    border: 1px solid var(--color-border);
+    border-top: none;
+    padding: 1.25rem;
+    background: var(--color-surface);
+  }
+  .track-item:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+  .track-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+  .track-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-accent-dim);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .track-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-primary);
+  }
+  .track-embed {
+    margin-bottom: 0;
+  }
+</style>
