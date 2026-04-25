@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://borrowedtongues.github.io',
-  base: '/BorrowedTongues',
+  base: '/BorrowedTongues/',
   output: 'static',
   integrations: [
     sitemap(),
