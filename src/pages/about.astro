@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/releases';
 
-const base = siteConfig.baseUrl;
+const base = import.meta.env.BASE_URL; // /BorrowedTongues/
 
 const languagePairings = [
   { language: 'tlhIngan Hol (Klingon)', genre: 'Acid Punk', note: 'Releases available', available: true },
   { language: 'Rihannsu (Romulan)', genre: 'J-Pop', note: 'Coming', available: false },
   { language: 'Valyrian (High Valyrian)', genre: 'Grunge', note: 'Coming', available: false },
-  { language: "Golic Vulcan (Vulcan)", genre: 'Ambient / Post-Rock', note: 'Coming', available: false },
+  { language: 'Golic Vulcan (Vulcan)', genre: 'Ambient / Post-Rock', note: 'Coming', available: false },
   { language: 'Dothraki', genre: 'Steppe / Throat Singing', note: 'Coming', available: false },
   { language: 'Dovahzul (Dragon Language)', genre: 'Nordic Metal Punk', note: 'Coming', available: false },
 ];
@@ -20,10 +20,18 @@ const languagePairings = [
     <header class="page-header">
       <h1 class="page-title">About Borrowed Tongues</h1>
       <hr class="gold-rule" />
-      <p class="page-intro">
-        Ancient stories. Alien tongues. Acid punk.
-      </p>
+      <p class="page-intro">Ancient stories. Alien tongues. Acid punk.</p>
     </header>
+
+    <!-- Optional artist avatar — degrades gracefully if absent -->
+    <div class="avatar-wrap" aria-hidden="true">
+      <img
+        src={`${base}images/portrait.png`}
+        alt="Borrowed Tongues"
+        class="avatar-img"
+        onerror="this.parentElement.style.display='none';"
+      />
+    </div>
 
     <section class="content-section" aria-labelledby="philosophy-heading">
       <h2 id="philosophy-heading">The Idea</h2>
@@ -68,7 +76,7 @@ const languagePairings = [
               <td class="genre-cell">{row.genre}</td>
               <td class="status-cell">
                 {row.available
-                  ? <a href={`${base}/#releases`} class="status-link">Listen ↗</a>
+                  ? <a href={`${base}#releases`} class="status-link">Listen ↗</a>
                   : <span class="status-coming">Coming</span>
                 }
               </td>
@@ -125,7 +133,7 @@ const languagePairings = [
   }
 
   .page-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
   }
   .page-title {
     font-size: clamp(1.8rem, 5vw, 3rem);
@@ -142,6 +150,19 @@ const languagePairings = [
     font-size: 1.2rem;
     color: var(--color-text-secondary);
     margin-top: 1rem;
+  }
+
+  /* Optional avatar */
+  .avatar-wrap {
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--color-border);
+    max-width: 240px;
+  }
+  .avatar-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(0.4);
   }
 
   .content-section {

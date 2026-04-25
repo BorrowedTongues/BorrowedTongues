@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SoundCloudEmbed from '../../components/SoundCloudEmbed.astro';
 import LyricsExpander from '../../components/LyricsExpander.astro';
-import { releases, siteConfig } from '../../config/releases';
+import { releases } from '../../config/releases';
 import type { Release } from '../../config/releases';
 
 export function getStaticPaths() {
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const { release } = Astro.props;
-const base = siteConfig.baseUrl;
+const base = import.meta.env.BASE_URL; // /BorrowedTongues/
 ---
 
 <BaseLayout
@@ -34,7 +34,7 @@ const base = siteConfig.baseUrl;
           <!-- Cover art -->
           <div class="release-art">
             <img
-              src={`${base}/images/${release.coverArt}`}
+              src={`${base}images/${release.coverArt}`}
               alt={`Cover art for ${release.title}`}
               class="cover-img"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
@@ -47,9 +47,9 @@ const base = siteConfig.baseUrl;
           <!-- Metadata -->
           <div class="release-meta">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-              <a href={`${base}/`}>Home</a>
+              <a href={base}>Home</a>
               <span aria-hidden="true"> / </span>
-              <a href={`${base}/#releases`}>Releases</a>
+              <a href={`${base}#releases`}>Releases</a>
             </nav>
 
             <div class="meta-badges">

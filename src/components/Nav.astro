@@ -1,15 +1,15 @@
 ---
 import { siteConfig } from '../config/releases';
-const base = siteConfig.baseUrl;
+const base = import.meta.env.BASE_URL; // /BorrowedTongues/
 ---
 
 <header class="site-nav">
   <div class="container nav-inner">
-    <a href={`${base}/`} class="nav-brand">{siteConfig.title}</a>
+    <a href={base} class="nav-brand">{siteConfig.title}</a>
     <nav aria-label="Main navigation">
       <ul class="nav-links">
-        <li><a href={`${base}/#releases`}>Releases</a></li>
-        <li><a href={`${base}/about`}>About</a></li>
+        <li><a href={`${base}#releases`}>Releases</a></li>
+        <li><a href={`${base}about`}>About</a></li>
         <li>
           <a href={siteConfig.soundcloudUrl} target="_blank" rel="noopener noreferrer" class="nav-external">
             SoundCloud <span aria-hidden="true">↗</span>

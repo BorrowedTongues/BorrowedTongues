@@ -161,7 +161,7 @@ export const siteConfig: SiteConfig = {
     'Music in constructed languages from fictional worlds, adapted from public domain literature. Each language is paired with a genre that fits its culture.',
   githubUrl: 'https://github.com/BorrowedTongues',
   soundcloudUrl: 'https://soundcloud.com/REPLACE_WITH_HANDLE',
-  baseUrl: '/borrowed-tongues',
+  baseUrl: '/BorrowedTongues',
 };
 
 // Helpers
@@ -175,6 +175,10 @@ export function isPlaceholderLyrics(lyrics: string | undefined): boolean {
 }
 
 export function buildEmbedUrl(trackUrl: string, accentHex = 'c8972a'): string {
+  // If the URL is already a SoundCloud embed URL, use it directly
+  if (trackUrl.startsWith('https://w.soundcloud.com/player/')) {
+    return trackUrl;
+  }
   const encoded = encodeURIComponent(trackUrl);
   return `https://w.soundcloud.com/player/?url=${encoded}&color=%23${accentHex}&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false`;
 }

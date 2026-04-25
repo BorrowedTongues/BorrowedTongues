@@ -1,21 +1,20 @@
 ---
 import type { Release } from '../config/releases';
-import { siteConfig } from '../config/releases';
 
 interface Props {
   release: Release;
 }
 
 const { release } = Astro.props;
-const base = siteConfig.baseUrl;
-const href = `${base}/releases/${release.id}`;
+const base = import.meta.env.BASE_URL; // /BorrowedTongues/
+const href = `${base}releases/${release.id}`;
 ---
 
 <article class="release-card">
   <a href={href} class="card-link" aria-label={`${release.title} — ${release.subtitle}`}>
     <div class="card-art">
       <img
-        src={`${base}/images/${release.coverArt}`}
+        src={`${base}images/${release.coverArt}`}
         alt={`Cover art for ${release.title}`}
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
         loading="lazy"

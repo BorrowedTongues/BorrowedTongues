@@ -3,20 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ReleaseCard from '../components/ReleaseCard.astro';
 import { releases, siteConfig } from '../config/releases';
 
-const base = siteConfig.baseUrl;
+const base = import.meta.env.BASE_URL; // /BorrowedTongues/
 ---
 
 <BaseLayout>
   <!-- Hero -->
   <section class="hero" aria-label="Hero">
+    <!-- Optional banner background — degrades gracefully if file absent -->
+    <div class="hero-banner" aria-hidden="true">
+      <img
+        src={`${base}images/hero_background.png`}
+        alt=""
+        class="banner-img"
+        onerror="this.parentElement.style.display='none';"
+      />
+    </div>
+    <!-- Circular seal watermark -->
     <div class="hero-seal" aria-hidden="true">
-      <img src={`${base}/images/seal.png`} alt="" onerror="this.style.display='none'" />
+      <img
+        src={`${base}images/seal.png`}
+        alt=""
+        onerror="this.style.display='none';"
+      />
     </div>
     <div class="hero-content container">
       <h1 class="hero-title anim-title">{siteConfig.title}</h1>
       <hr class="gold-rule hero-rule anim-rule" />
       <p class="hero-tagline anim-tagline">{siteConfig.tagline}</p>
-      <a href="#releases" class="btn anim-cta">Listen</a>
+      <a href={`#releases`} class="btn anim-cta">Listen</a>
     </div>
   </section>
 
@@ -59,7 +73,7 @@ const base = siteConfig.baseUrl;
           <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" class="btn">
             GitHub ↗
           </a>
-          <a href={`${base}/about`} class="btn">Full Story</a>
+          <a href={`${base}about`} class="btn">Full Story</a>
         </div>
       </div>
     </div>
@@ -76,6 +90,22 @@ const base = siteConfig.baseUrl;
     justify-content: center;
     overflow: hidden;
   }
+  /* Optional banner image — fills hero behind everything */
+  .hero-banner {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.12;
+    filter: grayscale(1);
+    display: block;
+  }
+  /* Seal watermark */
   .hero-seal {
     position: absolute;
     inset: 0;
@@ -83,7 +113,7 @@ const base = siteConfig.baseUrl;
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
   .hero-seal img {
     width: min(600px, 70vw);
@@ -93,7 +123,7 @@ const base = siteConfig.baseUrl;
   }
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
