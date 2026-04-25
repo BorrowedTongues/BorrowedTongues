@@ -3,12 +3,21 @@ import { isPlaceholderLyrics } from '../config/releases';
 
 interface Props {
   lyrics?: string;
+  lyricsOriginal?: string;
   trackTitle: string;
   id: string;
+  language: string;
 }
 
-const { lyrics, trackTitle, id } = Astro.props;
-const shouldHide = isPlaceholderLyrics(lyrics);
+const { lyrics, lyricsOriginal, trackTitle, id, language } = Astro.props;
+
+const hasEnglish  = !isPlaceholderLyrics(lyrics);
+const hasOriginal = !isPlaceholderLyrics(lyricsOriginal);
+const hasBoth     = hasEnglish && hasOriginal;
+const shouldHide  = !hasEnglish && !hasOriginal;
+
+// Strip parenthetical from language name: "tlhIngan Hol (Klingon)" → "tlhIngan Hol"
+const langName = language.split('(')[0].trim();
 ---
 
 {!shouldHide && (
@@ -22,25 +31,95 @@ const shouldHide = isPlaceholderLyrics(lyrics);
       <span class="arrow" aria-hidden="true">▶</span>
       <span>Lyrics — {trackTitle}</span>
     </button>
+
     <div class="lyrics-body" id={`lyrics-${id}`} role="region" aria-label={`Lyrics for ${trackTitle}`}>
-      <pre class="lyrics-text">{lyrics}</pre>
+
+      {/* ── State 1: Both versions present ── */}
+      {hasBoth && (
+        <>
+          <div class="lyrics-controls" role="group" aria-label="Language view">
+            <button class="lang-btn active" data-lang="english">English</button>
+            <button class="lang-btn" data-lang="both">Both</button>
+            <button class="lang-btn" data-lang="original">{langName}</button>
+          </div>
+
+          <div class="lyrics-view" data-view="english">
+            <pre class="lyrics-text">{lyrics}</pre>
+          </div>
+
+          <div class="lyrics-view" data-view="original" hidden>
+            <pre class="lyrics-text">{lyricsOriginal}</pre>
+          </div>
+
+          <div class="lyrics-view lyrics-view--both" data-view="both" hidden>
+            <div class="lyrics-col">
+              <h4 class="lyrics-col-label">English</h4>
+              <pre class="lyrics-text">{lyrics}</pre>
+            </div>
+            <div class="lyrics-col">
+              <h4 class="lyrics-col-label">{langName}</h4>
+              <pre class="lyrics-text">{lyricsOriginal}</pre>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ── State 2: English only ── */}
+      {hasEnglish && !hasOriginal && (
+        <pre class="lyrics-text">{lyrics}</pre>
+      )}
+
+      {/* ── State 3: Conlang only ── */}
+      {hasOriginal && !hasEnglish && (
+        <>
+          <p class="lyrics-lang-label">{langName}</p>
+          <pre class="lyrics-text">{lyricsOriginal}</pre>
+        </>
+      )}
+
     </div>
   </div>
 )}
 
 <script>
-  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-lyrics-toggle]');
-  toggles.forEach((btn) => {
-    btn.addEventListener('click', () => toggle(btn));
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggle(btn);
-      }
+  function initLyrics() {
+    // ── Expand / collapse ──
+    const toggles = document.querySelectorAll<HTMLButtonElement>(
+      '[data-lyrics-toggle]:not([data-lyrics-init])'
+    );
+    toggles.forEach((btn) => {
+      btn.setAttribute('data-lyrics-init', 'true');
+      btn.addEventListener('click',   () => toggleExpand(btn));
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleExpand(btn);
+        }
+      });
     });
-  });
 
-  function toggle(btn: HTMLButtonElement) {
+    // ── Language view switching ──
+    document.querySelectorAll<HTMLElement>('.lyrics-controls:not([data-lang-init])').forEach((controls) => {
+      controls.setAttribute('data-lang-init', 'true');
+      const panel = controls.closest<HTMLElement>('.lyrics-body');
+      if (!panel) return;
+
+      controls.querySelectorAll<HTMLButtonElement>('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.lang;
+
+          controls.querySelectorAll('.lang-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          panel.querySelectorAll<HTMLElement>('.lyrics-view').forEach((view) => {
+            view.hidden = view.dataset.view !== lang;
+          });
+        });
+      });
+    });
+  }
+
+  function toggleExpand(btn: HTMLButtonElement) {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
     const bodyId = btn.getAttribute('aria-controls');
@@ -48,4 +127,7 @@ const shouldHide = isPlaceholderLyrics(lyrics);
     const body = document.getElementById(bodyId);
     if (body) body.classList.toggle('open', !expanded);
   }
+
+  document.addEventListener('DOMContentLoaded', initLyrics);
+  document.addEventListener('astro:page-load', initLyrics);
 </script>

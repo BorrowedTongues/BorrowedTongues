@@ -1,7 +1,8 @@
 export interface Track {
   title: string;
   soundcloudUrl: string;
-  lyrics?: string;
+  lyrics?: string;          // English translation
+  lyricsOriginal?: string;  // Conlang version (tlhIngan Hol, Rihan, High Valyrian, etc.)
 }
 
 export interface Release {
@@ -126,6 +127,87 @@ Where everyone could see it,
 And never once pretending he was better than he was.
 
 That — even a Klingon would respect.`,
+        lyricsOriginal: `bov choHDI' DIS 'ej ta'pu' tIb Sop ba'taHvIS,
+loDvetlh ghoSpu' Camelot — SuD porghDaj naQ.
+SuD SarghDaj. SuD may'morghDaj. SuD rolDaj — nagh molDaq mI'wI' rur.
+'ej nItlhDajDaq — obmaQ qengbogh — muD'e' choptaHDI' bom.
+
+jatlh: "yoH SuvwI'pu' raS mIS, 'e' vIQoypu' —
+vaj Quj — loD yoH QujDaj — toblu'DI' Quj!
+wa'logh — nachwIj yIpe' — pItlh QaQ nob.
+'ach DIS wa' jaj wa' ghIq — cho'el, 'ej nachraj vIpe'!"
+qach tam. yaS Hoch — HIvje'Daj legh neH.
+Arthur obmaQ ghop ghoS — 'ach Gawain nItlhDaj ghopta'.
+"ta'wI', mach law'qu' jIH. yInwIj Haw'DI' — mach choH.
+HIchaw' — Hegh Quj vIQuj."
+
+ghaH qIp. nach nargh — peghmey rur
+Hoch Sov 'ach pagh jatlhbogh.
+'ej porgh — nach Hutlhbogh, laHbe'bogh porgh —
+nachDaj tlhapqa', 'ej jat Heghpu'bogh jatlh:
+
+"Chapel SuDDaq jISam — DIS choHDI'!
+monglIj Hub Hutlh 'ej tlhIlraj nob Hutlh!
+SuvwI' — tajDaj chavpu'bogh quv —
+pagh qIpvetlh — yoHghach wa' neH DaghajDI'?"
+
+wejvatlh jaj — yItDI' Daq HoHlu'bogh.
+wejvatlh ram — QongDI' 'ej obmaQ Daj.
+Gawain 'ev jaH — DIS bIrDaq — qa'ro' juSDI', tam juSDI',
+tlhobtaHghach — pa' chIm jatlhtaH rur — juSDI' je.
+qach Sampu' peD retlhDaq, 'ej joH mon paDaq,
+jatlh joH: "yIratlh! jaj wej — vanpa' HeglIj.
+'ach Quj wImagh — qachlIjDaq DachavtaHbogh —
+HInob. 'ej chot'e' vISambogh — qanob."
+
+jaj wa': joH chegh — Sargh Ha'DIbaH qengDI'.
+Gawain chavpu' pagh. nob nIb — QaQ.
+jaj cha': joH chegh — targhmey qengDI'.
+Gawain chavpu' pagh. nob nIb — QaQ.
+jaj wej — joH be' ghoS — ghopDajDaq vay' qeng:
+Sugh — mI'wI' — jatlh: "'oH yIDIgh — taj pagh DughomlaH.
+'oH yIDIgh — obmaQ SuD — SuS naQ bIH rur peD.
+yIpolneH neH. yIja'Qo' neH."
+
+'ej Gawain — wejvatlh jaj HeghDaq yItpu'bogh,
+toDuj polpu'bogh qaStaHvIS Hoch HeH peD —
+tlhappu'. may'morgh bIngDaq polpu'.
+'ej joH cheghDI' — yIH qengDI' —
+Gawain nob — pagh.
+
+wa'DIch — DIS wa' obmaQDaq yItDI' —
+yIn wIvpu'.
+'ej wIvvetlh — nagh HuH rur.
+
+Chapel SuD — HuD qabDaq rIQqa' rur,
+'ej loDvetlh SuD pa' QamtaH — jej — loD rur
+poH naQ qo'Daq ghajbogh, ghajmo'.
+Gawain tor. mongDaj cha'. mInDaj SoQmoH.
+qIp wa'DIch — Gawain vIH. loDvetlh SuD mon.
+"loD wejvatlh jaj yItbogh DaDellaw'ta' —
+vIHtaHghach — loD wIvbe'bogh."
+qIp cha'DIch — DIr retlhDaq mev, juch wa' neH.
+"Sargh Ha'DIbaH — targhmey — nob nIb. tlhIl noblu'."
+qIp wejDIch — chop. mach. wa' 'Iw QIt.
+Gawain ghop mongDaj ghoS — Doq chegh.
+
+"chop'e' — Sugh polbogh, 'Ip ghorbogh!
+yIn DawIvpu' — pIch vIghajbe'.
+'ach SuvwI' 'IpDaj ghorbogh — rIQ yIDIgh,
+'ej DIDIgh — qo' pongraj lIjpa'!
+DaH yIQam, Gawain. yIQam!
+bIyIn — 'ej 'oH batlh Qatlh law' Hoch Qatlh puS —
+bIyIntaH — yap DaghaHlaw' 'e' DaSov."
+
+Sugh SuD DIghpu' ghaH — jaj Hoch, ghIq.
+So'meH ghobe' — cha'meH.
+yoHghach Dun law' Hoch Dun puS ta'pu'bogh
+obmaQ qIptaHghach ghobe', 'ev yIttaHghach ghobe',
+Chapel torDI' ghobe'.
+lujDaj tob — leghlaH Hoch Daq — DIghDI',
+'ej not 'e' Hech — QaQ law' ghaH ghaHtaHbogh.
+
+'oH — tlhIngan je — quv.`
       },
     ],
   },

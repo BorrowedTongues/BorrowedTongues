@@ -215,6 +215,79 @@ a:hover {
   white-space: pre-wrap;
 }
 
+/* ── Bilingual lyrics controls ── */
+.lyrics-controls {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  width: fit-content;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+.lang-btn:last-child {
+  border-right: none;
+}
+.lang-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-border);
+}
+.lang-btn.active {
+  color: var(--color-accent);
+  background: transparent;
+}
+
+/* Side-by-side view */
+.lyrics-view--both {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 640px) {
+  .lyrics-view--both {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.lyrics-col-label {
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Single-language label for conlang-only tracks */
+.lyrics-lang-label {
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* ── Cover art placeholder ── */
 .cover-placeholder {
   background: var(--color-surface);
