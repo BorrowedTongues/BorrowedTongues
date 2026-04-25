@@ -219,6 +219,12 @@ a:hover {
   letter-spacing: 0.05em;
 }
 
+/* ── Progressive image shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
 /* ── Page load animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }

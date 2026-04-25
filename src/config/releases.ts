@@ -156,7 +156,7 @@ That — even a Klingon would respect.`,
 
 export const siteConfig: SiteConfig = {
   title: 'Borrowed Tongues',
-  tagline: 'Ancient stories. Alien tongues. Acid punk.',
+  tagline: 'Ancient texts. Alien tongues. Amplified myth.',
   description:
     'Music in constructed languages from fictional worlds, adapted from public domain literature. Each language is paired with a genre that fits its culture.',
   githubUrl: 'https://github.com/BorrowedTongues',

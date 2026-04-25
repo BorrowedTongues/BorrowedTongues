@@ -1,0 +1,158 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  class?: string;
+  sizes?: string;
+  /** When true, the wrapper hides itself on error instead of showing a placeholder */
+  hideOnError?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  class: className,
+  sizes,
+  hideOnError = false,
+} = Astro.props;
+---
+
+<div
+  class:list={['pi-wrap', className]}
+  style={`aspect-ratio: ${width}/${height}`}
+  data-title={alt}
+  data-hide-on-error={hideOnError ? 'true' : undefined}
+>
+  <img
+    class="pi-img"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+    sizes={sizes ?? `(max-width: 768px) 100vw, ${width}px`}
+  />
+</div>
+
+<style>
+  .pi-wrap {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-surface);
+    width: 100%;
+  }
+
+  /* Shimmer — visible until image loads */
+  .pi-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      var(--color-surface) 0%,
+      var(--color-border) 50%,
+      var(--color-surface) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .pi-wrap.loaded::before {
+    opacity: 0;
+  }
+
+  /* Missing image state — stop shimmer, show title text */
+  .pi-wrap.img-missing::before {
+    animation: none;
+    background: var(--color-surface);
+  }
+
+  .pi-wrap.img-missing::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    text-align: center;
+    padding: 0 1rem;
+    color: var(--color-text-secondary);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    z-index: 2;
+  }
+
+  /* Image itself — starts invisible, fades in on load */
+  .pi-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    position: relative;
+    z-index: 0;
+  }
+
+  .pi-img.loaded {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  function initProgressiveImages() {
+    const wrappers = document.querySelectorAll<HTMLElement>('.pi-wrap:not([data-pi-init])');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const wrapper = entry.target as HTMLElement;
+          const img = wrapper.querySelector<HTMLImageElement>('img.pi-img');
+          if (!img) return;
+
+          const onLoad = () => {
+            wrapper.classList.add('loaded');
+            img.classList.add('loaded');
+          };
+          const onError = () => {
+            if (wrapper.dataset.hideOnError === 'true') {
+              wrapper.style.display = 'none';
+            } else {
+              wrapper.classList.add('img-missing');
+            }
+          };
+
+          if (img.complete) {
+            img.naturalWidth > 0 ? onLoad() : onError();
+          } else {
+            img.addEventListener('load', onLoad, { once: true });
+            img.addEventListener('error', onError, { once: true });
+          }
+
+          observer.unobserve(wrapper);
+        });
+      },
+      { rootMargin: '200px' }
+    );
+
+    wrappers.forEach((w) => {
+      w.setAttribute('data-pi-init', 'true');
+      observer.observe(w);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initProgressiveImages);
+  document.addEventListener('astro:page-load', initProgressiveImages);
+</script>
