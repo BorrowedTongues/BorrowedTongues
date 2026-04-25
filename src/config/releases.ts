@@ -240,9 +240,9 @@ export const siteConfig: SiteConfig = {
   title: 'Borrowed Tongues',
   tagline: 'Ancient texts. Alien tongues. Amplified myth.',
   description:
-    'Music in constructed languages from fictional worlds, adapted from public domain literature. Each language is paired with a genre that fits its culture.',
+    'Music in constructed and historical languages. Acid punk in Klingon. Grunge in High Valyrian. Adapted from myths no one owns anymore.',
   githubUrl: 'https://github.com/BorrowedTongues',
-  soundcloudUrl: 'https://soundcloud.com/REPLACE_WITH_HANDLE',
+  soundcloudUrl: 'https://soundcloud.com/borrowed_tongues',
   baseUrl: '/BorrowedTongues',
 };
 

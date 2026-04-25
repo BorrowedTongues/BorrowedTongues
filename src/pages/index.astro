@@ -45,6 +45,28 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
     </div>
   </section>
 
+  <!-- Ko-fi support section -->
+  <section id="support" class="section support-strip" aria-labelledby="support-heading">
+    <div class="container">
+      <div class="support-inner">
+        <div>
+          <h2 class="section-heading" id="support-heading">Support the project</h2>
+          <p class="support-body">
+            Borrowed Tongues is a one-person project. Lyrics, language research, and production
+            direction are all human work. If you want to support more releases, you can leave a
+            tip — no account required.
+          </p>
+        </div>
+        <a
+          href="https://ko-fi.com/borrowedtongues"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--kofi"
+        >Support on Ko-fi</a>
+      </div>
+    </div>
+  </section>
+
   <!-- About strip -->
   <section id="about" class="section about-strip" aria-labelledby="about-heading">
     <div class="container">
@@ -170,6 +192,33 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
     }
   }
 
+  /* ── Ko-fi support strip ── */
+  .support-strip {
+    border-top: 1px solid var(--color-border);
+  }
+  .support-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .support-body {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 56ch;
+  }
+  .btn--kofi {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    flex-shrink: 0;
+  }
+  .btn--kofi:hover {
+    background: var(--color-text-primary);
+    color: var(--color-bg);
+  }
+
   /* ── About strip ── */
   .about-strip {
     background: var(--color-surface);
@@ -217,4 +266,21 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
     // If the file doesn't exist, onload never fires — banner stays at opacity 0
     img.src = url;
   }
+</script>
+
+<!-- Ko-fi floating widget — loaded client-side only to avoid SSR issues -->
+<script is:inline>
+  (function () {
+    var s = document.createElement('script');
+    s.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
+    s.onload = function () {
+      kofiWidgetOverlay.draw('borrowedtongues', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support',
+        'floating-chat.donateButton.background-color': '#c8972a',
+        'floating-chat.donateButton.text-color': '#0a0a08'
+      });
+    };
+    document.body.appendChild(s);
+  })();
 </script>
