@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProgressiveImage from '../components/ProgressiveImage.astro';
 import { siteConfig } from '../config/releases';
 
 const base = import.meta.env.BASE_URL; // /BorrowedTongues/
@@ -23,15 +24,16 @@ const languagePairings = [
       <p class="page-intro">Ancient stories. Alien tongues. Acid punk.</p>
     </header>
 
-    <!-- Optional artist avatar — degrades gracefully if absent -->
-    <div class="avatar-wrap" aria-hidden="true">
-      <img
-        src={`${base}images/portrait.png`}
-        alt="Borrowed Tongues"
-        class="avatar-img"
-        onerror="this.parentElement.style.display='none';"
-      />
-    </div>
+    <!-- Optional artist portrait — hides itself if file not present -->
+    <ProgressiveImage
+      src={`${base}images/portrait.png`}
+      alt="Borrowed Tongues"
+      width={480}
+      height={480}
+      class="portrait"
+      sizes="240px"
+      hideOnError={true}
+    />
 
     <section class="content-section" aria-labelledby="philosophy-heading">
       <h2 id="philosophy-heading">The Idea</h2>
@@ -152,16 +154,11 @@ const languagePairings = [
     margin-top: 1rem;
   }
 
-  /* Optional avatar */
-  .avatar-wrap {
+  /* Optional portrait — ProgressiveImage handles hide-on-error */
+  :global(.portrait.pi-wrap) {
     margin-bottom: 2.5rem;
     border: 1px solid var(--color-border);
     max-width: 240px;
-  }
-  .avatar-img {
-    display: block;
-    width: 100%;
-    height: auto;
     filter: grayscale(0.4);
   }
 

@@ -11,9 +11,10 @@
   --color-accent-dim: #7a5a18;
   --color-punk: #8b1a1a;
 
-  --font-display: 'Cinzel', Georgia, serif;
+  --font-display: 'Abril Fatface', Georgia, serif;
   --font-body: 'Crimson Pro', Georgia, serif;
-  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-secondary: 'Rokkitt', Georgia, serif;
+  --font-mono: 'Rokkitt', Georgia, serif;
 
   --max-width: 1100px;
 }
@@ -53,8 +54,17 @@ body::before {
 }
 
 /* ── Typography ── */
-h1, h2, h3, h4 {
+h1 {
   font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+}
+
+h2, h3, h4 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
   color: var(--color-text-primary);
   line-height: 1.2;
   letter-spacing: 0.04em;
@@ -88,9 +98,10 @@ a:hover {
 /* ── Badges ── */
 .badge {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.2em 0.6em;
   border: 1px solid var(--color-border);
@@ -109,9 +120,10 @@ a:hover {
 /* ── Buttons ── */
 .btn {
   display: inline-block;
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
+  font-weight: 600;
   font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.7em 2em;
   border: 1px solid var(--color-accent);
@@ -164,9 +176,10 @@ a:hover {
   border-top: 1px solid var(--color-border);
   width: 100%;
   padding: 0.85rem 0;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
   text-align: left;
@@ -213,7 +226,8 @@ a:hover {
   padding: 2rem;
 }
 .cover-placeholder span {
-  font-family: var(--font-display);
+  font-family: var(--font-secondary);
+  font-weight: 700;
   font-size: 1.1rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.05em;

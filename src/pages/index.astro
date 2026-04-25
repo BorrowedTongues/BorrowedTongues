@@ -9,20 +9,19 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
 <BaseLayout>
   <!-- Hero -->
   <section class="hero" aria-label="Hero">
-    <!-- Optional banner background — degrades gracefully if file absent -->
-    <div class="hero-banner" aria-hidden="true">
-      <img
-        src={`${base}images/hero_background.png`}
-        alt=""
-        class="banner-img"
-        onerror="this.parentElement.style.display='none';"
-      />
-    </div>
+    <!-- Optional banner background — loaded via JS, invisible if missing -->
+    <div
+      class="hero-banner"
+      aria-hidden="true"
+      data-bg={`${base}images/hero_background.png`}
+    ></div>
     <!-- Circular seal watermark -->
     <div class="hero-seal" aria-hidden="true">
       <img
         src={`${base}images/seal.png`}
         alt=""
+        loading="lazy"
+        decoding="async"
         onerror="this.style.display='none';"
       />
     </div>
@@ -90,20 +89,20 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
     justify-content: center;
     overflow: hidden;
   }
-  /* Optional banner image — fills hero behind everything */
+  /* Banner background — set via JS once loaded, stays hidden if image missing */
   .hero-banner {
     position: absolute;
     inset: 0;
     z-index: 0;
-    overflow: hidden;
-  }
-  .banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.12;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     filter: grayscale(1);
-    display: block;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .hero-banner.loaded {
+    opacity: 0.12;
   }
   /* Seal watermark */
   .hero-seal {
@@ -132,8 +131,8 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
   }
   .hero-title {
     font-size: clamp(2.8rem, 8vw, 6rem);
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: 400;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
   }
   .hero-rule {
@@ -205,3 +204,17 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
     }
   }
 </style>
+
+<script>
+  const banner = document.querySelector<HTMLElement>('.hero-banner[data-bg]');
+  if (banner) {
+    const url = banner.dataset.bg!;
+    const img = new Image();
+    img.onload = () => {
+      banner.style.backgroundImage = `url('${url}')`;
+      banner.classList.add('loaded');
+    };
+    // If the file doesn't exist, onload never fires — banner stays at opacity 0
+    img.src = url;
+  }
+</script>
