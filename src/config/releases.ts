@@ -211,29 +211,804 @@ lujDaj tob — leghlaH Hoch Daq — DIghDI',
       },
     ],
   },
-  // {
-  //   id: 'qul-batleth',
-  //   title: "qul bat'leth",
-  //   subtitle: 'The Beowulf Cycle',
-  //   type: 'album',
-  //   language: 'tlhIngan Hol (Klingon)',
-  //   genre: 'Acid Punk',
-  //   sourceText: 'Beowulf (c. 700–1000 CE)',
-  //   year: 2026,
-  //   coverArt: 'beowulf-cover.jpg',
-  //   soundcloudPlaylistUrl: 'REPLACE_WITH_SOUNDCLOUD_PLAYLIST_EMBED_URL',
-  //   description:
-  //     "Seven tracks in tlhIngan Hol. One epic poem. One warrior's journey from glory to the grave. Beowulf is one of the oldest stories in the English language — a poem about a man who fights monsters with his bare hands, rules wisely for fifty years, and dies killing a dragon because he was too stubborn to stop being brave.",
-  //   tracks: [
-  //     { title: 'Heorot (The Golden Hall)', soundcloudUrl: 'REPLACE_1', lyrics: `[Track 1 lyrics]` },
-  //     { title: "SuvwI' vIghaj (I Am a Warrior)", soundcloudUrl: 'REPLACE_2', lyrics: `[Track 2 lyrics]` },
-  //     { title: "ghop'a' (Bare Hands)", soundcloudUrl: 'REPLACE_3', lyrics: `[Track 3 lyrics]` },
-  //     { title: "bIQ'a' QIj (The Black Lake)", soundcloudUrl: 'REPLACE_4', lyrics: `[Track 4 lyrics]` },
-  //     { title: "ta' qan (The Aged King)", soundcloudUrl: 'REPLACE_5', lyrics: `[Track 5 lyrics]` },
-  //     { title: 'Wiglaf', soundcloudUrl: 'REPLACE_6', lyrics: `[Track 6 lyrics]` },
-  //     { title: 'qul Qav (The Last Fire)', soundcloudUrl: 'REPLACE_7', lyrics: `[Track 7 lyrics]` },
-  //   ],
-  // },
+  {
+    id: 'qul-batleth',
+    title: "qul bat'leth",
+    subtitle: 'The Beowulf Cycle',
+    type: 'album',
+    language: 'Klingon',
+    genre: 'Acid Punk',
+    sourceText: 'Beowulf (c. 700–1000 CE)',
+    year: 2026,
+    coverArt: 'Beowulf_Album_Art.png',
+    soundcloudPlaylistUrl: 'https://soundcloud.com/borrowed_tongues/sets/qul-batleth-the-beowulf-cycle',
+    description:
+      "A seven-track acid punk concept album in tlhIngan Hol (Klingon), adapting the Old English epic poem Beowulf (c. 700-1000 CE, public domain). Each track is written as a song in Klingon — not a literal translation, but lyrics composed to sing in the language's natural rhythm, aggression, and compactness.",
+    tracks: [
+      {
+        title: 'Heorot (The Golden Hall)',
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/heorot-the-golden-hall-1?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=53b12877c8a24f028bd5fad9719a97ad&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `Where the grey sea breaks against the northern stone
+And the wind sings cold through the hollow bone of winter,
+There rose a hall in the age before the sorrow —
+Timbers tall as ships, and rafters carved with glory.
+Hrothgar called it Heorot, and the name rang true:
+A crown of oak and gold beneath the endless sky.
+
+Every lord and thane from every wind-scarred shore
+Came bearing mead and memory to fill those benches.
+The scops sang tales of battles no man living saw,
+And the firelight threw their shadows long against the walls.
+No hunger there, no exile, and no bitter word —
+Just the roar of fellowship that made the darkness small.
+
+But somewhere past the marshes,
+Past the places where the moonlight will not go,
+Something heard the laughter
+And it learned the shape of everything it hated.
+
+Heorot! Heorot!
+Golden hall, how bright you burn against the night!
+Heorot! Heorot!
+Can your walls hold back what crawls beyond the light?
+
+He came without a name that any tongue could carry,
+A shape between the shadows and the swallowing dark —
+Grendel, born of exile, cursed before the making,
+Older than the memory of the stones beneath the marsh.
+He tore the door like parchment, and the screaming started,
+And the benches ran with blood before the torches died.
+
+Morning found the living kneeling in the wreckage,
+Counting all the faces that the night had taken.
+Hrothgar wept — a king unmade by something shapeless —
+And the hall that once rang gold now rang with grief alone.
+They scrubbed the floors. They lit the fires. They prayed.
+And the next night, Grendel came again.
+
+Heorot! Heorot!
+Golden hall, the blood has stained your oaken floor!
+Heorot! Heorot!
+Twelve long winters — who will stand and fight once more?
+
+Twelve years the monster feasted.
+Twelve years the warriors fell like wheat before the scythe.
+No blade could find his body.
+No prayer could stop the sound of footsteps in the night.
+The mead-hall stood, but empty —
+A monument to everything that courage couldn't save.
+
+Heorot... Heorot...
+The golden hall waits, and the darkness remembers your name.`,
+        lyricsOriginal: `bIQ'a' bIr HeHDaq, nagh vorgh retlhDaq,
+SuS 'oy' bey rur, qaStaHvIS DIS bIr Hoch,
+qach Dun chenpu' — tIq law' Duj tIq puS,
+Sor Dun rur, DungDaj chal ghom'a' patlh.
+Hrothgar pong nob — "Heorot" — 'ej teH pong:
+mIp boch'e', batlh qach'e', chal bIngDaq Quch.
+
+joq Hoch HeHvo' ghoSpu' joH je yaS,
+HIq nob, lut qen nob, raS naQ teb chaH.
+lutmey bom qonwI'pu' — may' tIQ law'qu',
+'ej qul wov lIwDaj tInqu' chenmoH.
+pa' ghung tu'be', pa' naw' tu'be',
+jup bey QoQ neH — Hurgh mach chenmoH.
+
+'ach ngech HurghtaH retlh,
+maS wov jaHbe'bogh DaqDaq,
+vay' Qoy'pu' —
+maw'meH Hoch, muSmeH Hoch, Sov'eghpu'.
+
+Heorot! Heorot!
+qach SuD, qach boch — ram DechDI' chIS SoH!
+Heorot! Heorot!
+tlhoy'lIj — QIb ghoStaHbogh bot'a'?
+
+pong ghajbe' ghaH — jat pagh qonlaH,
+QIb jIngDaq qaS, Hurgh SoptaHbogh rur.
+Grendel — naw' chenpu'bogh, quvHa' qen law',
+nagh bIngDaq yIntaHbogh ngech qan law'.
+lojmIt not poSmoH — Huv neH, pujmoH —
+'ej bey taH, 'Iw taH, Soj Hop qul Hegh.
+
+po Daq lIng — yIntaHbogh pumDI' QIt,
+qab law' toD, qab law' Qaw' — ram tlhap Hoch.
+ta' SaQ — ta' Qaw' — vay' QIb porghbe' HoH —
+'ej qach boch'e' DaH bey neH QoyrI'.
+QaD luDIchqa'. qul luqemqa'. tlhob chaH.
+'ej ram veb — Grendel cheghqa'.
+
+Heorot! Heorot!
+qach SuD, qach boch — 'Iw DaH Sor rur QaD!
+Heorot! Heorot!
+wa'maH cha' DIS bIr — 'Iv DaH Qamqa' 'ej Suv?
+
+wa'maH cha' DIS — qa'Hom Sop taH.
+wa'maH cha' DIS — SuvwI'pu' pum, tlhIl rur bey.
+taj pagh ghom — porgh HotlaHbe'.
+tlhob pagh Qoj — 'ach peDtaH 'aqroS retlh yIt.
+qach QamtaH — 'ach chIm qach'e' —
+vay' Hoch toDlaHbe'bogh toDuj'e' nagh'e'.
+
+Heorot... Heorot...
+qach SuD loStaH. Hurgh pongraj qaw.`,
+      },
+      {
+        title: "SuvwI' vIghaj (I Am a Warrior)",
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/suvwi-vighaj-i-am-a-warrior-2?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=2b5f9584a85941928db0cd0b5ce1adcf&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `I was born where the storms make wreckage of the coast,
+Where the sea takes everything that isn't nailed to bedrock.
+My father's name was thunder in the halls of fourteen kings,
+And I carried it like iron long before I earned my own.
+I have wrestled in the deep where the water has no bottom,
+Held the throats of sea-beasts till the ocean turned to red.
+I have walked into the places where the bravest men turn back
+And I've come home every time with someone else's story ended.
+
+They told me of a kingdom where the night has teeth,
+Where a creature no one names still feeds on sleeping men.
+They told me not to go —
+And that's the only reason that I'm here.
+
+I am a warrior! These hands — this heart — this fury!
+I am a warrior! I was not made to kneel!
+I am a warrior! My name will ring in halls I've never entered,
+And when the last of me is gone, the song remains!
+
+Old king, I see the ruin written in your eyes —
+Twelve winters and the weight of every man you couldn't save.
+I didn't cross the whale-road for your gold or for your praise.
+I came because a hall should ring with laughter, not with grief.
+Grendel carries no blade — so neither will I.
+Let it be fist and fury, let it be the raw and honest way.
+I will meet him as he is: a thing of claw and malice,
+And I'll answer him with nothing but the strength that I was born to.
+
+No armor and no edge between my skin and his —
+Just the question every warrior was born to finally answer:
+When the darkness comes for you,
+Do you have enough inside to send it back?
+
+I am a warrior! These hands — this heart — this fury!
+I am a warrior! I was not made to kneel!
+I am a warrior! My name will ring in halls I've never entered,
+And when the last of me is gone, the song remains!
+
+If I fall, then let me fall with my hands around his throat.
+If I die, then write it down: he died reaching forward.
+A life spent running from the dark
+Is just a slower kind of death —
+And I have never been the kind to die that slowly.
+
+I am a warrior.
+I am a warrior.
+Tonight, the hall will learn my name.`,
+        lyricsOriginal: `jIboghpu' — SuS qul Duj Qaw'bogh HeHDaq,
+bIQ'a' tlhap vay' Hoch — nagh HoS neH taHlaH.
+vavwI' pong — 'oH rav ghor wa'maH loS tach'e',
+'ej vIqengpu' — 'ach pong'e' vIchavnIS.
+bIQ qIj'e' jISuvpu' — bIng Hutlhbe'bogh bIQ,
+bIQ Ha'DIbaH Hugh vIghoppu', bIQ Doq chenpu'.
+He yoHwI'pu' cheghbogh Daq vIyItpu' —
+'ej reH jIcheghpu', latlh lut vanpu'.
+
+wo' vIja'lu'pu' — ram Ho' ghajbogh Daq,
+qa'Hom pong ghajbe' — QongwI'pu' Sop taH.
+"yIjaHQo'!" jatlh chaH —
+'ej 'oH meq wa' neH — naDev jIQam!
+
+SuvwI' jIH! ghopvam — tIqvam — QeHvam!
+SuvwI' jIH! jItor — not jItobbe'!
+SuvwI' jIH! pongwIj bey'a' taH tach jISuchbe'bogh —
+'ej jIvanDI' — bom taH!
+
+ta' qan — mInlIjDaq Qaw' vIlaD,
+wa'maH cha' DIS bIr, SuvwI' tobbe'bogh tIq nIb Hoch.
+bIQ'a' vIchIjbe' — mIplIj, naD'e' — qatlhmo' ghobe'.
+qach bey QoQ taH — SaQ taHbe' — 'oH vIneH!
+Grendel nuH qengbe' — nuH vIqengbe' je.
+ghop qab'e' neH, qu' val'e' neH, ghob'e' neH.
+vIghom ghaH 'oHtaHghach — mIgh, ghop, muS,
+'ej boghDI' HoS neH — jang vIjanglaH!
+
+may'morgh pagh — DIr je porgh neH jIngDaq,
+ghel wa'DIch — SuvwI' Hoch jangmeH boghpu':
+Hurgh ghoSDI' —
+nItlhDaq yap DaghajlaH'a'?
+
+SuvwI' jIH! ghopvam — tIqvam — QeHvam!
+SuvwI' jIH! jItor — not jItobbe'!
+SuvwI' jIH! pongwIj bey'a' taH tach jISuchbe'bogh —
+'ej jIvanDI' — bom taH!
+
+jIpumchugh — Grendel Hugh retlhDaq ghopwIj yItu'!
+jIHeghchugh — yIghItlh: "HeDaj yIlegh — vIH'eghpu'!"
+yIn — Hurgh Haw'taHghach —
+'oH Hegh QIt rur neH —
+'ej not jIHegh QIt — not!
+
+SuvwI' jIH.
+SuvwI' jIH.
+DaHjaj ram — pongwIj ghoj qach.`,
+      },
+      {
+        title: "ghop'a' (Bare Hands)",
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/ghopa-bare-hands-3?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=bcf4935bb48a44b19f38ed600230ba68&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `The torches die. The warriors lie in rows like offered things.
+I keep my eyes half-shuttered, and I slow my breathing down.
+Let him think I'm sleeping. Let him think I'm meat.
+I can hear the marshes dripping from his footsteps on the stone.
+The door doesn't open — it surrenders.
+And the smell that comes before him is the smell of every grave.
+
+He takes the first man like a loaf of bread —
+I hear the wet, unmakeable sound of a body coming apart,
+And I hold still, I hold still, I hold still —
+Because the beast must come to me. The beast must choose me.
+And then his fingers find my arm,
+And everything inside me turns to war.
+
+You thought I was another sleeping lamb?
+You thought this hall had nothing left to give?
+
+Bare hands! Bare hands!
+I've got you now — there is no going back!
+Bare hands! Bare hands!
+I'll tear the arm from off your wretched back!
+You came here for a feast —
+Tonight, the feast is you!
+
+He pulls — I pull harder. He twists — I twist him down.
+The hall erupts around us: timbers cracking, benches flying,
+Warriors scrambling for the walls as two forces
+Older than the argument of iron
+Settle it the oldest way there is.
+His eyes are wide — he's never felt this before.
+No one has ever held him back. No one has ever matched him.
+And I can feel the socket giving way.
+
+Bare hands! Bare hands!
+I've got you now — there is no going back!
+Bare hands! Bare hands!
+I'll tear the arm from off your wretched back!
+You came here for a feast —
+Tonight, the feast is you!
+
+The sinew stretches like a rope about to snap.
+The blood runs hot across my knuckles — his or mine, it doesn't matter.
+One last pull. One last sound like the world
+Ripping at the seam —
+
+BARE HANDS! BARE HANDS!
+The arm comes free! The monster screams and runs!
+BARE HANDS! BARE HANDS!
+Let him die crawling in his mother's filthy dark —
+I hold the proof above my head,
+And Heorot belongs to men again!`,
+        lyricsOriginal: `qul Hegh. SuvwI'pu' QongDaq ratlh, nob rur.
+tlhuH vImachmoH — mInwIj vISoQmoH.
+Soj 'e' yIHar! Ha'DIbaH 'e' yIHar!
+ngech bIQ peDtaH — yItDaj nagh'e' Qoy.
+lojmIt not poSmoH — lojmIt jIvmoH neH —
+pIvlob ghaH — molDaq pIv Hoch ghoS.
+
+wa'DIch SuvwI' tlhap — tIr ngoQ rur —
+QoytaHbe'bogh wab — porgh wav'e' —
+'ej jIQamtaH, jIQamtaH, jIQamtaH —
+qa'Hom ghoSnIS jIH. qa'Hom wIvnIS jIH.
+ghopDaj nItlhwIj SamDI' —
+porghwIj naQ noH chenmoH!
+
+QongwI' latlh 'e' DaQub'a'?
+qach noblI' pagh ghajqa' 'e' DaQub'a'?
+
+ghop'a'! ghop'a'!
+qaghoppu' — DaH bInarghlaHbe'!
+ghop'a'! ghop'a'!
+DeSlIj — porghlIjvo' — vIpeSlaH!
+Soj DaneHpu' —
+DaHjaj ram — SoH Soj SoH!
+
+ghaH lup — jIHvaD lup law'! ghaH nIH — jIHvaD nIH bIng!
+qach ghor — Sor pum — raSmey pumtaH,
+SuvwI'pu' tlhoy' Haw', HoS cha' tay'taHvIS —
+nuj je nItlh law' tIQ — nuj je nItlh qan law'
+noH tIQ law' QI'lop noH qan puS.
+mInDu'Daj poSqu' — not 'oH vIqotlhpu'.
+not vay' botpu'. not vay' nIbpu'.
+'ej tlhuQ peSlu'taH — jISov!
+
+ghop'a'! ghop'a'!
+qaghoppu' — DaH bInarghlaHbe'!
+ghop'a'! ghop'a'!
+DeSlIj — porghlIjvo' — vIpeSlaH!
+Soj DaneHpu' —
+DaHjaj ram — SoH Soj SoH!
+
+to' boch tlhay rur — peSlu'meH poH ghaH.
+'Iw tujqu' ghopwIjDaq — ghopDaj pagh ghopwIj — potlhbe'.
+wa'logh Qav. wa'logh wab — qo'
+yermey peS rur —
+
+GHOP'A'! GHOP'A'!
+DeSDaj narghpu'! qa'Hom bey 'ej Haw'!
+GHOP'A'! GHOP'A'!
+SoSDaj QIbDaq HeghmeH — 'ej Haw' ghaH!
+toQ Dung Dungvo' — vIlan —
+'ej Heorot — loDpu'vaD je — Soj je!`,
+      },
+      {
+        title: "bIQ'a' QIj (The Black Lake)",
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/biqa-qij-the-black-lake-4?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=dd389e9b737c4e9abe94e766eaa6e51e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `They thought the story ended with the arm nailed to the rafter,
+With the feasting and the songs and Hrothgar's golden gifts.
+But grief has got a mother, and her memory is long,
+And she came up from the black lake
+On a night that tasted like the end of everything.
+She took his oldest friend — the one who'd stood beside the throne
+Through every one of those twelve winters —
+And she dragged him screaming to a place no living man has seen.
+
+They showed me where the water starts to darken past the trees,
+Where the stags would rather die of thirst than drink.
+The branches hang like fingers and the surface doesn't ripple —
+It just waits, the way a throat waits for the swallowing.
+The other men stood back. I didn't blame them.
+I put on my ring-mail. I took a borrowed sword.
+And I walked into the water like a man walks into prayer:
+Eyes open, lungs full, ready for the answer to be no.
+
+Down, and down, and down —
+Past the reach of daylight,
+Past the place where pressure makes a cathedral of your skull,
+Into the deep where ancient things have built their churches.
+
+Black water, take me deeper —
+I have come to find the thing that feeds on sorrow!
+Black water, I'm not drowning —
+I'm arriving. And I haven't come to bargain.
+
+She hit me like a landslide in the half-light of her cave,
+All fury and remembrance and a mother's sacred rage.
+The borrowed sword bit nothing — just skated off her hide
+Like a prayer thrown at a god who isn't listening.
+But there — against the cavern wall, among the hoarded bones —
+A blade forged in an age before the ages,
+Too heavy for a common man to lift,
+And I am not, I have never been, a common man.
+
+Black water, hear me roaring —
+I have found the blade that giants left behind!
+Black water, she is falling —
+The ancient edge remembers what it was designed to do!
+
+I took her head.
+The blood dissolved the blade down to the hilt —
+As if the sword had lived for only this one purpose
+And was glad, at last, to die.
+The water brightened. The creatures fled.
+And I rose toward the surface with the proof of what I'd done,
+Into a sky that had already started mourning me.
+
+They'd given up. The water had been boiling red for hours.
+But I walked out of the lake like a man returning
+From a conversation with the bottom of the world —
+And I had won the argument.`,
+        lyricsOriginal: `DeSbogh lut vanpu' 'e' luQub — toQ lanbogh rur,
+SoptaH 'ej bomtaH 'ej Hrothgar mIp nob.
+'ach bIQ ngech — SoSDaj SoS'a'Daj ghaj ghaH,
+'ej qawDaj tIq — 'ej bIQ'a' QIjvo' cheghpu',
+ram'e' Hoch vanbogh rur.
+jupDaj tIQ law' — raS retlhDaq QamtaHbogh'e',
+qaStaHvIS wa'maH cha' DIS bIr Hoch'e' —
+'ej bey SaQtaHvIS luppu' — legh pagh Daq.
+
+Daq cha'lu' — bIQ QIjchoHbogh Sor retlh,
+'Iw SarghDaq Hegh'eghqang — 'ach tlhutlhbe'.
+nItlh rur 'ay Sor — 'ej bIQ ngoDbe' —
+loStaH neH, Hugh loDDI' loStaH rur.
+latlh mev. pIch vIghajbe'.
+may'morgh may'Duj, etlh ngaqlu'bogh vItlhap.
+bIQDaq jIyIt — tlhobtaHbogh loDDaq yIt rur:
+mIn poSqu', tlhuH yap, jangmeH — "ghobe'" — jIghuH.
+
+bIng, bIng, bIng law' —
+jaj wov ghoSbe'bogh retlh Daq,
+nachDaj qach Dun rur'eghmoH 'uyDaq,
+bIngDaq — nagh tIQ qach Dun chenmoHbogh Daq.
+
+bIQ'a' QIj — jISupqu'!
+bIQ ngech SaQtaH Soptabogh'e' vISam!
+bIQ'a' QIj — jIQabbe' —
+jIpaw'. 'ej jImagh — jImagh — jImagh!
+
+nagh nIHDI' rur muqIppu' — pa' wovHa'Daq,
+QeH naQ 'ej qaw naQ 'ej SoS bortaS quv.
+etlh ngaqlu'bogh — DIrDaj chIpbe' neH —
+tlhob rur — Qun QoyQo'bogh tlhoblu'bogh.
+'ach pa' — pa' tlhoy' nagh retlh, nagh HomDaq —
+etlh chen'eghpu' DIS qen law' DIS qen puS,
+loD motlh pItlh'e' — latlhqu' —
+'ej jIH — not jIghaHpu', not jIghaH — loD motlh!
+
+bIQ'a' QIj — jIbey DaH!
+etlh Dun qempu'bogh qama' tIQ vISampu'!
+bIQ'a' QIj — ghaH pumtaH!
+etlh tIQ qaw — ta'meH qen Dun — Sov'egh!
+
+nachDaj vIpeSpu'.
+'Iw — etlh lampu' — 'echlet neH ratlh —
+rur'egh etlh — ngoQvam wa' neH yInpu'
+'ej Hegh — QuchDI' — Qav.
+bIQ wovmoH. Ha'DIbaH Haw'.
+'ej chal yoS vIjaH — ta'pu'wIj tobbogh vIqeng,
+chalDaq — jIbIQnISpu' rur Qub chaH.
+
+bIH mev. bIQ 'Iw Doq tuj — rep law'.
+'ach bIQ'a'vo' jInarghpu' — loD rur
+qo' bIngDaq — jatlhtaHghach vanpu'bogh —
+'ej Qappu' jatlhtaHghach'e'.`,
+      },
+      {
+        title: "ta' qan (The Aged King)",
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/ta-qan-the-aged-king-5?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=5073bb9ad1f64deeaabc2c54aad17856&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `Fifty winters sit behind me like a mountain range of days,
+Each one heavy with the memory of something I defended.
+I was young once — if you'd believe it — fast and foolish,
+Full of certainty that I could hold the darkness back with grip alone.
+Now the grip is slower, and the mornings take their time,
+And the mirror shows a man who's running out of wall to lean against.
+But I built something. Gods, I built something real.
+A kingdom where the children don't grow up afraid to sleep.
+
+Then a thief — a nothing man, a shadow barely breathing —
+Crept into the barrow where the dragon kept its gold.
+One cup. One small and stupid cup, and fifty years of silence
+Cracked like ice across a lake that everybody thought was solid.
+The dragon woke with fire in its throat and fury in its wings,
+And it burned the farmsteads first, because it didn't care
+About the difference between a king's hall and a shepherd's home —
+Fire is a democrat. Fire takes everything.
+
+My advisors say I'm too old.
+My body agrees with them, most mornings.
+But there's a thing inside me that has never learned to stop,
+And it's putting on its armor one more time.
+
+I am the aged king, but I am not yet done.
+There is one more fight inside this chest before the sunset.
+I am the aged king — my sword arm knows the way
+Even when the rest of me has half-forgotten.
+If this is where the road ends,
+Then I'll make the ending worth the road.
+
+I've sent the messengers. I've sharpened what will sharpen.
+I've said the things you say to people when you might not be coming back —
+Not goodbyes, exactly. More like... finishing the sentences
+I'd been leaving open all these years, just in case.
+My shield is heavy and my breath comes harder than it used to,
+But the dragon doesn't know what I've survived to get this far.
+It knows fire. I know something older:
+The stubborn, stupid, beautiful refusal to lie down.
+
+I am the aged king, but I am not yet done.
+There is one more fight inside this chest before the sunset.
+I am the aged king — my sword arm knows the way
+Even when the rest of me has half-forgotten.
+If this is where the road ends,
+Then I'll make the ending worth the road.
+
+Every king must have a final walk —
+Through the hall, past the faces, out the door.
+The trick is not to look back.
+The trick is to walk like you believe
+That what you're walking toward
+Is better than what you're leaving.
+
+One more fight.
+One more morning with a blade in my hand.
+One more chance to prove
+That the fire inside burns longer than the fire outside.`,
+        lyricsOriginal: `vaghmaH DIS bIr — HuDmey rur — jaj tIq Hoch,
+vay' vIQanpu'bogh tIq nIb Hoch qaw.
+jIQuppu' — wej DaHar'a'? — nom, Dogh,
+Hurgh vIbotlaH — ghopwIj HoS neH — Sov naQ.
+DaH ghop QIt, 'ej po tIq tlhap,
+'ej SIla' cha' — loD ratlhmeH tlhoy' Hutlhqu'bogh.
+'ach vay' vIchenmoHpu'. Qun'e'! vay' teH!
+wo' — puqpu' QongDI' Hotbe'bogh!
+
+vaj nIHwI' — pagh'e' loD, QIb 'ach tlhuH —
+nagh'e' qach'e' lung mIp polbogh 'elpu'.
+wa' HIvje'. wa' HIvje' mach, Dogh, 'ej vaghmaH DIS jImev
+yermey ru'Ha' rur — nagh HoS Hoch Harchugh.
+lung vem — qulDaj monDaq, QeH telDajDaq —
+'ej pa'mey SopwI' meQ, potlhbe' ghaHvaD —
+ta' tach je be'nI' tach jIngDaq pIm pagh —
+qul vot — qul tlhap Hoch — qul che'be'.
+
+jIqanqu' — QojwI'pu' jatlh.
+po law' — porghwIj chup je.
+'ach vay' porghwIjDaq — mevmeH ghojbe'bogh —
+'ej may'morgh lanqu'taH — wa'logh latlh.
+
+ta' qan jIH — 'ach not jIvanpu'!
+Heghpa' QoSwIj — may' wa' ratlhtaH tIqvamDaq!
+ta' qan jIH — DeSwIj He Sov —
+porghwIj Qav lIjDI' je!
+He vanDI' —
+He'e' 'oHmeH yap'e' — van vIchenmoH!
+
+QumwI'pu' vIngeHpu'. jejqu'bogh vIjejpu'.
+mu'mey jatlhlu' — loD cheghbe'law'bogh jatlhDI' —
+"maj qa'" jatlhbe' — nIteb... mu'tlheghmey vanlu'
+DIS law' poSqu'bogh — 'DaH SoQmoHmeH.'
+yoDwIj tIq, tlhuHwIj Doy' law' qen puS,
+'ach lung Sovbe' — chIlmeH jIyInpu'bogh vay'.
+qul Sov ghaH. jIH — vay' qan law' Sov:
+Dogh, 'IH, val, mevQo'taHghach!
+
+ta' qan jIH — 'ach not jIvanpu'!
+Heghpa' QoSwIj — may' wa' ratlhtaH tIqvamDaq!
+ta' qan jIH — DeSwIj He Sov —
+porghwIj Qav lIjDI' je!
+He vanDI' —
+He'e' 'oHmeH yap'e' — van vIchenmoH!
+
+ta' Hoch — yIt Qav ghajnIS —
+tach 'el, qab juS, lojmIt nargh.
+He'Daq yInobQo'.
+He'Daq yIt — bIHar'egh rur yIt —
+DaqDaq bIjaHtaHbogh
+lambogh'e' — law'qu' — ratlhbogh'e'.
+
+may' wa' latlh.
+po wa' latlh — taj ghopDaq.
+qul porghDaq law' — qul DebDaq puS —
+tobtaHmeH poH wa' latlh.`,
+      },
+      {
+        title: 'Wiglaf',
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/wiglaf-6?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=041fc0bab8f54ea0bf83225e6e1acc47&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `I watched them run — every last one of them,
+The ones who'd sworn their swords and sworn their blood
+And sworn their children's names upon the oath of loyalty.
+They ran like deer. They ran like water finding lower ground.
+And I stood there with my father's shield and my unproven blade
+And a choice so simple it was almost laughable:
+Stay, and probably die beside a dying king.
+Leave, and live forever with the knowledge that I left.
+
+They'll call it courage, later, in the songs.
+They'll say I was the brave one, the worthy one, the true.
+But standing there, watching the others flee,
+It didn't feel like bravery.
+It felt like being the only one in the room
+Who couldn't find the exit.
+
+Wiglaf! Wiglaf! Stand beside your king!
+The dragon's fire is a furnace and the world is turning black,
+But you are here — you are HERE —
+And that is all that honor ever asked!
+Wiglaf! Wiglaf! Hold the line!
+The old man's blood is on the ground, his sword is broken through —
+But you are young, and your blade is whole,
+And the belly of the beast is soft!
+
+He struck the dragon's head — I saw the ancient iron
+Shatter like a promise made by someone who meant well.
+The beast came back with fire and its jaws found the king's throat,
+And I thought: this is where the story ends, this is the final verse —
+But something in me moved before the thought was finished,
+Something older than my name, older than my fear.
+I drove my blade beneath the scales where the fire can't reach,
+And the dragon screamed a sound like continents divorcing.
+
+Wiglaf! Wiglaf! The beast is falling!
+Two swords — one broken, one still ringing true —
+And together, TOGETHER, the impossible collapses!
+Wiglaf! Wiglaf! The dragon dies!
+The king is bleeding out against the barrow stone,
+But his eyes are open, and he's smiling,
+And he says my name like it's the last word he'll ever need.
+
+He reached for me with hands that had held kingdoms,
+That had torn the arm from Grendel in a hall that's now a legend,
+That had carried fifty years of other people's safety —
+And they were trembling now, and light as paper,
+And I held them both in mine
+And told him every lie a dying man deserves to hear.
+
+You did enough. You did enough.
+The dragon's dead. The kingdom stands.
+You did enough.
+Rest now, my king.
+The fire's out.
+Rest now.`,
+        lyricsOriginal: `Haw' vIleghpu' — wa' Hoch Hoch,
+'Ip'eghpu'bogh'e' — etlh 'Ip, 'Iw 'Ip,
+puqloD pong 'Ip — quv'Ip naQ —
+Sargh rur Haw'. bIQ rur — bIngDaq ghoS.
+jIQamtaH — vavwI' yoD, etlh toblu'be',
+wIv motlhqu' — rur'eghDI' bey mach:
+yIratlh — chaq HeghDI' ta' HeghDaq —
+yIjaH — 'ej yIn naQ, Sov'egh — jIjaHpu'.
+
+bomDaq — toDuj lupongDI', ghIq.
+"yoH'e'" lupong, "quv'e'", "teH'e'" —
+'ach pa' QamtaHvIS, latlhpu' Haw'DI',
+toDuj rur'eghbe'.
+rur'egh — pa' wa' neH Daq naDev'e'
+lojmIt Sambe'bogh.
+
+Wiglaf! Wiglaf! ta'lIj retlhDaq yIQam!
+lung qul — qach meQ, qo' Hurghqu'choHtaH —
+'ach naDev SoH — naDev SOH —
+'ej 'oH neH — batlh poQpu'bogh!
+Wiglaf! Wiglaf! yIbot!
+loD qan 'Iw yavDaq, etlhDaj ghorlu' —
+'ach SoH Qup — etlhlIj naQ —
+'ej lung burgh — tuj law'!
+
+lung nach qIp — etlh tIQ vIlegh —
+lay' rur ghor — loD QaQ 'e' Hech.
+lung chegh — qul monDajvo' 'ej ta' Hugh Sam —
+'ej jIQub: naDev lut van — naDev bom Qav —
+'ach vay' vIH — Qub van'e' pa' —
+vay' pongwIj qan law', Hotwij qan law'.
+lung DeS bIng — qulDaj ghoSbe'bogh tajwIj lan —
+'ej lung bey — bey qo'mey narghbogh rur.
+
+Wiglaf! Wiglaf! lung pumtaH!
+etlh cha' — wa' ghor, wa' beytaH —
+'ej tay', TAY', laHbe'bogh'e' pummoH!
+Wiglaf! Wiglaf! lung Hegh!
+nagh'e' retlhDaq ta' 'Iw lam —
+'ach mInDu'Daj poStaH, 'ej mon —
+'ej pongwIj jatlh — mu' Qav ghaHbogh rur.
+
+ghopDu' — wo' ghoppu'bogh — muSampu',
+Grendel DeS peSpu'bogh tachDaq, DaH lut ghaH —
+DIS vaghmaH latlh nuvpu' QanmeH qengpu'bogh —
+'ej DaH Hay'taH, 'ej wovqu', 'ej nav rur —
+'ej jIghoppu' — cha'logh —
+'ej HeghmeH loD'e' Qoyla'bogh ngaS vInobpu'.
+
+yap Data'pu'. yap Data'pu'.
+lung Heghpu'. wo' QamtaH.
+yap Data'pu'.
+DaH yIleS, ta'wI'.
+qul Heghpu'.
+DaH yIleS.`,
+      },
+      {
+        title: "qul Qav (The Last Fire)",
+        soundcloudUrl: 'https://soundcloud.com/borrowed_tongues/qul-qav-the-last-fire-7?in=borrowed_tongues/sets/qul-batleth-the-beowulf-cycle&si=f68679899fc0437b8409dc9d1efa0aa8&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+        lyrics: `Build the pyre on the headland where the sailors first see shore,
+Stack it high with shields and helms and every gift he gave.
+Let the wood be oak — the kind that doesn't burn so much as
+Turns itself to light, the way a life turns into story.
+Lay him in the center with his armor and his blade —
+The one that broke against the dragon's skull — lay that there too.
+Even broken things deserve to go home with the man who swung them.
+Even broken things remember what they were.
+
+The women came with torches, and the men came with their silence,
+And the children came because they didn't understand
+That what they were about to watch was not just wood and fire
+But the closing of a book that held the last page anyone would write
+In the language of the kind of man who walks toward the dark
+And doesn't stop to ask if it's a good idea.
+They lit the pyre at dusk, when the sky was half-surrendered,
+And the flames reached up like hands trying to give something back.
+
+The smoke climbed past the tree line,
+Past the cliffs, past the place where eagles turn around.
+And every ship at sea that night
+Could see the light, and knew what it meant,
+And the sailors wept
+For a man most of them had never met.
+
+The last fire burns! The last fire burns!
+Carry him home on the back of the smoke and the light!
+The last fire burns! The last fire burns!
+Let every star make room — a warrior is rising tonight!
+
+They built the barrow after — ten days of hauling stone,
+A tower on the headland like a fist raised at the sea.
+They filled it with the dragon's gold because he'd earned it,
+Though he never got to spend a single coin.
+Twelve riders circled it on horseback, singing low —
+Not war songs, not the boasting kind, but the other ones,
+The ones you sing when someone was so good
+That the only honest thing left is to say so, and to weep.
+
+They said he was the kindest king who ever held a sword.
+They said he was the gentlest man who ever broke a monster.
+They said his name like it was something you could hold —
+A stone worn smooth by every mouth that spoke it,
+Warm to the touch, and heavy with the years.
+
+The last fire burns! The last fire burns!
+The barrow stands where every eye can find it!
+The last fire burns! The last fire burns!
+The story lives — the story lives — the story lives!
+Beyond the pyre, beyond the stone, beyond the sea,
+Beyond the memory of the ones who built the fire —
+The story lives.
+
+Beowulf.
+That was his name.
+And it still means something,
+A thousand years from now,
+In a language he would not have recognized,
+Sung by voices he will never hear.
+But the song knows him.
+The song always knew.`,
+        lyricsOriginal: `Dung HeHDaq — Dujpu' wa'DIch leghbogh Daq —
+qul nagh yIchenmoH — 'IH law', Dun law'.
+yoDmey, mIvmey, nobDaj Hoch — yIlanqu'.
+Sor — ej'e' Sor — meQbe'bogh rur —
+wovmoH'egh neH, yIn lutDaq choH rur.
+qoD'e' yIlan — may'morgh, tajDaj je —
+lung nachDaq ghorbogh'e' — 'oH je yIlan.
+vay' ghorbogh'e' — juHDaq jaH — loD lo'pu'bogh tlhej.
+vay' ghorbogh'e' — ghaHpu'bogh qaw.
+
+be'pu' ghoS — Siqmey qeng, loDpu' ghoS — tamDaj qeng,
+puqpu' ghoS — yajbe'mo' —
+Sor neH 'ej qul neH tu'be' — leghbogh'e'
+'ach paq Qav — SoQlu'taHbogh — mu'DajDaq Qav'e'
+Hurgh ghoSbogh loDpu' He jatlhlaHbogh
+'ej QaQlaw' 'e' ghel mevbogh.
+choS qem chaH — chal bID jIvDI',
+'ej qul ghop rur — vay' nobqa'nISbogh ghoS.
+
+tlhIch jaH — Sor Dung juS,
+nagh juS, toQDuj cheghbogh Daq juS.
+'ej bIQ'a'Daq — ramvetlh — Duj Hoch
+wov leghlaH, 'ej meq Sov,
+'ej Dujpu'vo' SaQtaH
+loD not ghompu'bogh law'qu'.
+
+qul Qav meQ! qul Qav meQ!
+tlhIch DungDaq, wov DungDaq — juHDaq yIqeng!
+qul Qav meQ! qul Qav meQ!
+Hov Hoch Daq chenmoH — SuvwI' juntaH DaHjaj ram!
+
+nagh qach chenmoH — ghIq — wa'maH jaj nagh qeng,
+HeHDaq — bIQ'a'Daq — ro' rur nItlh lanlu'bogh.
+lung mIp tebmoH — chavDaj — 'ach not Huch
+wa' neH lo'laHbe' ghaH.
+wa'maH cha' loDpu' Sargh Dech, bom QIt —
+may' bom ghobe', HemtaHghach bom ghobe' — 'ach latlh bom,
+bom'e' — loD QaQqu'DI' —
+val jatlhmeH ratlhbogh'e' wa' neH — jatlh, 'ej SaQ.
+
+jatlh chaH — ta' tIq law' Hoch tIq puS — taj qengbogh.
+jatlh chaH — loD jIl law' Hoch jIl puS — qa'Hom ghorbogh.
+pongDaj jatlh chaH — ghopDaj ghajlaHbogh vay' rur —
+nagh QIt, jat Hoch lampu'bogh,
+tujqu' 'ej DIS tIq'e' law'.
+
+qul Qav meQ! qul Qav meQ!
+nagh qach QamtaH — mIn Hoch SamlaHbogh Daq!
+qul Qav meQ! qul Qav meQ!
+lut taH! lut taH! lut taH!
+qul retlh, nagh retlh, bIQ'a' retlh,
+qul chenpu'bogh qaw retlh —
+lut taH!
+
+Beowulf.
+pongDaj 'oH.
+'ej DIS SaD ghIq —
+Hol'e' ghov ghaHbe'bogh —
+ghogh not QoylaHbogh — bom ghaH.
+'ach bom — ghaH Sov.
+reH Sovpu' bom.`,
+      },
+    ],
+  },
 ];
 
 export const siteConfig: SiteConfig = {
