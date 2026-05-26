@@ -1029,7 +1029,7 @@ reH Sovpu' bom.`,
     tracks: [
       {
         title: 'Mirros Naejot Daoruni (Nothing Stands Before Me)',
-        soundcloudUrl: 'https://on.soundcloud.com/DPPOJw7y5RnxG5nBuI',
+        soundcloudUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2323903019&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
         lyrics: `I came across the burnt land.
 Black stone-legs, before me, standing.
 Half-buried by dust.
@@ -1172,7 +1172,7 @@ Valyria [[perzosa|perzo]] [[morghontas|morghūljagon]].
     tracks: [
       {
         title: 'Banchova Hatu (Hope Will Be Gone)',
-        soundcloudUrl: 'https://on.soundcloud.com/3z5dTEBvvRcybylENt',
+        soundcloudUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2323903955&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
         lyrics: `A walker told us of the wide land:
 two stone legs stand in the dust.
 The body — without. Near, a face —
