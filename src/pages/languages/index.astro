@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { languages } from '../../config/languages';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Language Reference"
+  description="Vocabulary, grammar, and derivation notes for the constructed languages used in Borrowed Tongues releases."
+>
+  <div class="languages-page">
+    <div class="container">
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={base}>Home</a>
+          <span aria-hidden="true"> / </span>
+          <span>Languages</span>
+        </nav>
+        <h1 class="page-title">Language Reference</h1>
+        <p class="page-lead">
+          Each Borrowed Tongues release uses a different constructed language.
+          These pages document the vocabulary, grammar, and derivation choices
+          made for each release — including new constructions coined when canon
+          had gaps.
+        </p>
+      </header>
+
+      <hr class="gold-rule" />
+
+      <ul class="language-list">
+        {languages.map((lang) => {
+          const newCount = lang.vocabulary.filter(v => v.source === 'new').length;
+          const totalCount = lang.vocabulary.length;
+          return (
+            <li class="language-card">
+              <a href={`${base}languages/${lang.slug}/`} class="language-card-link">
+                <div class="language-card-inner">
+                  <div class="language-names">
+                    <span class="language-display">{lang.displayName}</span>
+                    {lang.nativeName && lang.nativeName !== lang.displayName && (
+                      <span class="language-native">{lang.nativeName}</span>
+                    )}
+                  </div>
+                  <p class="language-meta">
+                    Created by {lang.createdBy} · {lang.sourceMedia}
+                  </p>
+                  <p class="language-stats">
+                    {totalCount} words documented · {newCount} new constructions
+                  </p>
+                </div>
+                <span class="language-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .languages-page {
+    padding-block: 3rem 5rem;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .breadcrumb a {
+    color: var(--color-text-secondary);
+  }
+  .breadcrumb a:hover {
+    color: var(--color-accent);
+  }
+
+  .page-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-lead {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    max-width: 56ch;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .language-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 0;
+  }
+
+  .language-card {
+    border: 1px solid var(--color-border);
+    border-top: none;
+  }
+  .language-card:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .language-card-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .language-card-link:hover {
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+  .language-card-link:hover .language-arrow {
+    color: var(--color-accent);
+    transform: translateX(4px);
+  }
+
+  .language-names {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .language-display {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+  }
+
+  .language-native {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .language-meta,
+  .language-stats {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .language-arrow {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    transition: color 0.15s, transform 0.15s;
+    flex-shrink: 0;
+  }
+</style>

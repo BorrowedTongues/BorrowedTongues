@@ -1,8 +1,9 @@
 export interface Track {
   title: string;
   soundcloudUrl: string;
-  lyrics?: string;          // English translation
-  lyricsOriginal?: string;  // Conlang version (tlhIngan Hol, Rihan, High Valyrian, etc.)
+  lyrics?: string;            // English translation
+  lyricsOriginal?: string;    // Conlang version (tlhIngan Hol, Rihan, High Valyrian, etc.)
+  lyricsAnnotated?: string;   // Marked-up conlang for inline tooltips. Syntax: [[word]] or [[display|canonical]]
 }
 
 export interface Release {
@@ -10,7 +11,8 @@ export interface Release {
   title: string;
   subtitle: string;
   type: 'album' | 'single';
-  language: string;
+  language: string;           // Display string: "tlhIngan Hol (Klingon)"
+  languageSlug?: string;      // LanguageConfig.slug for tooltip system: "klingon", "high-valyrian", etc.
   genre: string;
   sourceText: string;
   year: number;
@@ -36,6 +38,7 @@ export const releases: Release[] = [
     subtitle: "The Coward's Stone",
     type: 'single',
     language: 'tlhIngan Hol (Klingon)',
+    languageSlug: 'klingon',
     genre: 'Acid Punk',
     sourceText: 'Sir Gawain and the Green Knight (c. 14th century)',
     year: 2026,
@@ -217,6 +220,7 @@ lujDaj tob — leghlaH Hoch Daq — DIghDI',
     subtitle: 'The Beowulf Cycle',
     type: 'album',
     language: 'Klingon',
+    languageSlug: 'klingon',
     genre: 'Acid Punk',
     sourceText: 'Beowulf (c. 700–1000 CE)',
     year: 2026,
@@ -1006,6 +1010,292 @@ Hol'e' ghov ghaHbe'bogh —
 ghogh not QoylaHbogh — bom ghaH.
 'ach bom — ghaH Sov.
 reH Sovpu' bom.`,
+      },
+    ],
+  },
+  {
+    id: 'mirros-naejot-daoruni',
+    title: 'Mirros Naejot Daoruni',
+    subtitle: 'Nothing Stands Before Me',
+    type: 'single',
+    language: 'High Valyrian',
+    languageSlug: 'high-valyrian',
+    genre: 'Grunge',
+    sourceText: 'Ozymandias — Percy Bysshe Shelley (1818, public domain)',
+    year: 2026,
+    coverArt: 'mirros-naejot-daoruni-cover.png',
+    description:
+      "A grunge adaptation of Shelley's Ozymandias through the lens of the fallen Valyrian Freehold. A wanderer crosses the cursed peninsula generations after the Doom, finds a shattered statue of a Dragonlord, and reads the king's inscription — not with awe, but refusal. Paired with Banchova Hatu: the same poem, an opposite register.",
+    tracks: [
+      {
+        title: 'Mirros Naejot Daoruni (Nothing Stands Before Me)',
+        soundcloudUrl: 'https://on.soundcloud.com/DPPOJw7y5RnxG5nBuI',
+        lyrics: `I came across the burnt land.
+Black stone-legs, before me, standing.
+Half-buried by dust.
+Eyes still cold; a broken mouth.
+All of it kept by stone,
+by the man's hand.
+
+The maker's hand is dust.
+The king's swollen heart is dust.
+The eyes that see. The hand that broke the stone.
+Both dust now,
+beneath the same fire,
+both kept only by stone.
+
+On the broken stone,
+the great old speech remains —
+Valyria's tongue, the fire-bringer people:
+
+"I am king. I am dragon-king.
+Look upon my works, you latecomers —
+and believe nothing."
+
+Nothing else remains.
+Within the great broken works,
+nothing — level ground, level dust.
+No name.
+No god.
+Nothing — nothing — nothing.
+
+Valyria died by fire.
+The Doom came.
+And the dragonlords shouted in their tongue,
+but no one heard them —
+only the stone heard them,
+and the stone sings of them still.
+
+"Look upon my works —
+look upon my works —
+and believe nothing."
+
+Mirros. Daoruni.`,
+        lyricsOriginal: `Nyke perzys-tegot māzitan —
+zōbrie dōron-krisi, naejot, iōragis,
+prūbroso jesoso —
+laesī iosre, relgos pryjata,
+mērī dōronosa rāeltas,
+valo ondoso.
+
+Māzittio ondos jesor issa.
+Dāryro hōzie prūmia jesor issa.
+Laesī urnesi. Ondos dōron pryjattas.
+Mērī jeson āejot,
+hēnka perzro syt,
+mērī henka dōronoso umbis.
+
+Pryjata dōronon bē,
+rōva eglie udir umbis —
+Valyrīho udir, qogror perzys-māzitto:
+
+"Nyke iksan dārys. Nyke iksan zaldrīz-dārys.
+Ñuhī gaomoti obūlās, naejot māzittī —
+se daor pāsās!"
+
+Mirros āena umbis.
+Rōvī pryjatī gaomotī iemnȳ,
+mirros — gīda tegon, gīda jeson.
+Brōzi daor.
+Jaes daor.
+Daoruni — daoruni — daoruni.
+
+Valyria perzosa morghontas.
+Vējes māzitos.
+Se zaldrīz-dārī udiroso arghugar,
+yn skoros ziry rȳbatas daor —
+dōron henka ziry rȳbatas,
+yn dōron vēdes syt ziry āejot.
+
+"Ñuhī gaomoti obūlās —
+ñuhī gaomoti obūlās —
+se daor pāsās."
+
+Mirros. Daoruni.`,
+        lyricsAnnotated: `[[Nyke]] [[perzys-tegot]] [[māzitan|māzigon]] —
+[[zōbrie]] [[dōron-krisi]], [[naejot]], [[iōragis|iōragon]],
+[[prūbroso]] [[jesoso|jesor]] —
+[[laesī|laes]] [[iosre]], [[relgos]] [[pryjata|pryjagon]],
+[[mērī]] [[dōronosa|dōron]] [[rāeltas|rāelagon]],
+[[valo|vala]] [[ondoso|ondos]].
+
+[[Māzittio|māzitto]] [[ondos]] [[jesor]] [[issa|sagon]].
+[[Dāryro|dārys]] [[hōzie]] [[prūmia]] [[jesor]] [[issa|sagon]].
+[[Laesī|laes]] [[urnesi|urnegon]]. [[Ondos]] [[dōron]] [[pryjattas|pryjagon]].
+[[Mērī]] [[jeson|jesor]] [[āejot]],
+[[hēnka]] [[perzro|perzo]] [[syt]],
+[[mērī]] [[hēnka]] [[dōronosa|dōron]] [[umbis|umbagon]].
+
+[[Pryjata|pryjagon]] [[dōronon|dōron]] [[bē]],
+[[rōva]] [[eglie]] [[udir]] [[umbis|umbagon]] —
+Valyrīho [[udir]], [[qogror]] [[perzys-māzitto]]:
+
+"[[Nyke]] [[iksan|sagon]] [[dārys]]. [[Nyke]] [[iksan|sagon]] [[zaldrīz-dārys]].
+[[Ñuhī|ñuha]] [[gaomoti|gaomagon]] [[obūlās|obūlagon]], [[naejot]] [[māzittī|māzitto]] —
+[[se]] [[daor]] [[pāsās|pāsagon]]!"
+
+[[Mirros]] [[āena]] [[umbis|umbagon]].
+[[Rōvī|rōva]] [[pryjatī|pryjagon]] [[gaomotī|gaomagon]] [[iemnȳ]],
+[[mirros]] — [[gīda]] [[tegon]], [[gīda]] [[jeson|jesor]].
+[[Brōzi]] [[daor]].
+[[Jaes]] [[daor]].
+[[Daoruni]] — [[daoruni]] — [[daoruni]].
+
+Valyria [[perzosa|perzo]] [[morghontas|morghūljagon]].
+[[Vējes]] [[māzitos|māzigon]].
+[[Se]] [[zaldrīz-dārī|zaldrīz-dārys]] [[udiroso|udir]] [[arghugar|arghugon]],
+[[yn]] [[skoros]] [[ziry]] [[rȳbatas|rȳbagon]] [[daor]] —
+[[dōron]] [[hēnka]] [[ziry]] [[rȳbatas|rȳbagon]],
+[[yn]] [[dōron]] [[vēdes|vēdegon]] [[syt]] [[ziry]] [[āejot]].
+
+"[[Ñuhī|ñuha]] [[gaomoti|gaomagon]] [[obūlās|obūlagon]] —
+[[ñuhī|ñuha]] [[gaomoti|gaomagon]] [[obūlās|obūlagon]] —
+[[se]] [[daor]] [[pāsās|pāsagon]]."
+
+[[Mirros]]. [[Daoruni]].`,
+      },
+    ],
+  },
+  {
+    id: 'banchova-hatu',
+    title: 'Banchova Hatu',
+    subtitle: 'Hope Will Be Gone',
+    type: 'single',
+    language: 'Suh Ankripton (Kryptonian)',
+    languageSlug: 'suh-ankripton',
+    genre: 'Post-Rock / Appalachian Folk',
+    sourceText: 'Ozymandias — Percy Bysshe Shelley (1818, public domain)',
+    year: 2026,
+    coverArt: 'banchova-hatu-cover.png',
+    description:
+      "A post-rock and Appalachian folk adaptation of Shelley's Ozymandias, sung in Suh Ankripton (Peterson's 2025 Superman-film Kryptonian). A Kryptonian narrator stands in the failing soil generations before the planet's destruction, finds a fallen statue of an ancient ruler, and re-reads its inscription as confession rather than command. Paired with Mirros Naejot Daoruni: the same poem, an opposite register.",
+    tracks: [
+      {
+        title: 'Banchova Hatu (Hope Will Be Gone)',
+        soundcloudUrl: 'https://on.soundcloud.com/3z5dTEBvvRcybylENt',
+        lyrics: `A walker told us of the wide land:
+two stone legs stand in the dust.
+The body — without. Near, a face —
+half-buried, broken mouth, cold eyes,
+the proud gaze of one before whom we knelt.
+
+The maker truly saw him.
+The carving hand did not soften.
+Pride outlasted the stone.
+The maker's hand is gone.
+The proud heart is gone.
+
+And on the broken pedestal —
+in the old script, in my mother-tongue —
+these words remain:
+
+"I am the great one. I am the king of Krypton.
+Look upon my works, you who come after —
+and despair."
+
+What remains — without.
+Around the broken great-work,
+nameless wasteland.
+Lone dust, level dust,
+under Rao,
+through the great hours.
+
+Our houses are falling.
+The land does not hold the seed.
+The wise ones whisper:
+Krypton is gone.
+And I stand in the great dust,
+and I see again the old words,
+and I hear them differently —
+my meaning; the king's meaning, none.
+
+"Look upon my works —
+look upon my works —
+and despair."
+
+Hatu... banchova.`,
+        lyricsOriginal: `Maryach yovrhaz ye yu ichoth-naks:
+duwa drom-kriso yostan yu kelor.
+Kilaz vath. Bara, pravor —
+gwabros, kosh reg, zhi laso,
+zoworel zoh ankal yovbahnek-el.
+
+Jever yovworel pravor sath.
+Iondaz pryjat yov-nil.
+Zoh-feken yokuolm idromaz.
+Iondaz jever banchova.
+Zoh-feken banchova.
+
+Yok yu kosh-iduronaz —
+yu valsuh, yu ne-muna-suh —
+ke-rado yorel:
+
+"Il yorelos naks. Il yorelos Dar an-Kripton.
+Inejavaz yowor ya, kelo-yamaz —
+yok yochuv hatu-vath!"
+
+Yorel vath.
+Bara kosh idaron-jevaz,
+sad rad-vath.
+Solo kelor, pim kelor,
+yu Rao,
+yu woluo-naks.
+
+Feroso yopum-tah.
+Ichothaz yo-no-kuolm isumaz.
+Anhah-yachat ka-yorel:
+Kripton banchova.
+Yok il yostan yu daron-kelor,
+yok il yowor ka val-rado,
+yok il yobahum re-meq —
+ne-meq, yu-meq dar vath.
+
+"Inejavaz yowor ya —
+inejavaz yowor ya —
+yok yochuv hatu-vath."
+
+Hatu... banchova.`,
+        lyricsAnnotated: `[[Maryach|maryach]] [[yovrhaz|rhaz]] [[ye]] [[yu]] [[ichoth-naks]]:
+[[duwa]] [[drom-kriso]] [[yostan|stan]] [[yu]] [[kelor]].
+[[Kilaz|kil]] [[vath]]. [[Bara|bara]], [[pravor]] —
+[[gwabros]], [[kosh]] [[reg]], [[zhi]] [[laso]],
+[[zoworel]] [[zoh]] [[ankal]] [[yovbahnek-el|bahnek]].
+
+[[Jever|jever]] [[yovworel|wor]] [[pravor]] [[sath]].
+[[Iondaz|ond]] [[pryjat]] [[yov-nil|nil]].
+[[Zoh-feken|zoh-feken]] [[yokuolm|kuolm]] [[idromaz|drom]].
+[[Iondaz|ond]] [[jever|jever]] [[banchova]].
+[[Zoh-feken|zoh-feken]] [[banchova]].
+
+[[Yok|yok]] [[yu]] [[kosh-iduronaz|kosh-duron]] —
+[[yu]] [[valsuh]], [[yu]] [[ne-muna-suh|muna-suh]] —
+[[ke-rado|rado]] [[yorel|rel]]:
+
+"[[Il|il]] [[yorelos|rel]] [[naks]]. [[Il|il]] [[yorelos|rel]] [[Dar|dar]] [[an-Kripton|Kripton]].
+[[Inejavaz|java]] [[yowor|wor]] [[ya]], [[kelo-yamaz|kelo-yama]] —
+[[yok]] [[yochuv|chuv]] [[hatu-vath]]!"
+
+[[Yorel|rel]] [[vath]].
+[[Bara|bara]] [[kosh]] [[idaron-jevaz|daron-java]],
+[[sad]] [[rad-vath]].
+[[Solo|solo]] [[kelor]], [[pim]] [[kelor]],
+[[yu]] [[Rao|rao]],
+[[yu]] [[woluo-naks]].
+
+[[Feroso|rosh]] [[yopum-tah|pum]].
+[[Ichothaz|ichoth]] [[yo-no-kuolm|kuolm]] [[isumaz|sum]].
+[[Anhah-yachat|anhah-yachat]] [[ka-yorel|rel]]:
+[[Kripton]] [[banchova]].
+[[Yok|yok]] [[il]] [[yostan|stan]] [[yu]] [[daron-kelor]],
+[[yok]] [[il]] [[yowor|wor]] [[ka]] [[val-rado|rado]],
+[[yok]] [[il]] [[yobahum|bah]] [[re-meq|meq]] —
+[[ne-meq|meq]], [[yu-meq|meq]] [[dar]] [[vath]].
+
+"[[Inejavaz|java]] [[yowor|wor]] [[ya]] —
+[[inejavaz|java]] [[yowor|wor]] [[ya]] —
+[[yok]] [[yochuv|chuv]] [[hatu-vath]]."
+
+[[Hatu|hatu]]... [[banchova]].`,
       },
     ],
   },

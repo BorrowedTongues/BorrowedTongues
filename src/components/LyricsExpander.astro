@@ -1,15 +1,19 @@
 ---
 import { isPlaceholderLyrics } from '../config/releases';
+import { getLanguage } from '../config/languages';
+import type { LanguageConfig } from '../types/languages';
 
 interface Props {
   lyrics?: string;
   lyricsOriginal?: string;
+  lyricsAnnotated?: string;
   trackTitle: string;
   id: string;
-  language: string;
+  language: string;        // display string: "tlhIngan Hol (Klingon)"
+  languageSlug?: string;   // LanguageConfig.slug: "klingon"
 }
 
-const { lyrics, lyricsOriginal, trackTitle, id, language } = Astro.props;
+const { lyrics, lyricsOriginal, lyricsAnnotated, trackTitle, id, language, languageSlug } = Astro.props;
 
 const hasEnglish  = !isPlaceholderLyrics(lyrics);
 const hasOriginal = !isPlaceholderLyrics(lyricsOriginal);
@@ -18,6 +22,47 @@ const shouldHide  = !hasEnglish && !hasOriginal;
 
 // Strip parenthetical from language name: "tlhIngan Hol (Klingon)" → "tlhIngan Hol"
 const langName = language.split('(')[0].trim();
+
+// Language page link
+const base = import.meta.env.BASE_URL;
+const langPage = languageSlug ? `${base}languages/${languageSlug}/` : `${base}languages/`;
+
+// Parse [[word]] and [[display|canonical]] annotations into tooltip spans.
+// Returns HTML string. Words not found in vocab render as plain text.
+function renderAnnotated(text: string, langConfig: LanguageConfig | undefined): string {
+  if (!langConfig) return escapeHtml(text);
+
+  const vocab = langConfig.vocabulary;
+  const vocabMap = new Map(vocab.map(e => [e.word, e]));
+
+  return text.replace(/\[\[([^\]]+)\]\]/g, (match, inner) => {
+    const [display, canonical] = inner.includes('|')
+      ? inner.split('|') as [string, string]
+      : [inner, inner];
+
+    const entry = vocabMap.get(canonical);
+    if (!entry) return escapeHtml(display); // graceful degradation
+
+    const sourceBadge = langConfig.sourceLabels[entry.source] ?? entry.source;
+    const langAnchor = `${langPage}#${encodeURIComponent(canonical)}`;
+
+    return `<span class="word-annotated" data-word="${escapeAttr(canonical)}" data-def="${escapeAttr(entry.definition)}" data-source="${escapeAttr(sourceBadge)}" data-lang-href="${escapeAttr(langAnchor)}">${escapeHtml(display)}</span>`;
+  });
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function escapeAttr(s: string): string {
+  return s.replace(/"/g, '&quot;').replace(/&/g, '&amp;');
+}
+
+const langConfig = languageSlug ? getLanguage(languageSlug) : undefined;
+
+// Pre-render annotated HTML at build time
+const annotatedHtml = (lyricsAnnotated && langConfig)
+  ? renderAnnotated(lyricsAnnotated, langConfig)
+  : (lyricsOriginal ? escapeHtml(lyricsOriginal) : '');
 ---
 
 {!shouldHide && (
@@ -48,7 +93,16 @@ const langName = language.split('(')[0].trim();
           </div>
 
           <div class="lyrics-view" data-view="original" hidden>
-            <pre class="lyrics-text">{lyricsOriginal}</pre>
+            {lyricsAnnotated && langConfig ? (
+              <>
+                <p class="lyrics-lang-ref">
+                  <a href={langPage} class="lang-ref-link">→ {langName} language reference</a>
+                </p>
+                <pre class="lyrics-text lyrics-text--annotated" set:html={annotatedHtml} />
+              </>
+            ) : (
+              <pre class="lyrics-text">{lyricsOriginal}</pre>
+            )}
           </div>
 
           <div class="lyrics-view lyrics-view--both" data-view="both" hidden>
@@ -57,7 +111,10 @@ const langName = language.split('(')[0].trim();
               <pre class="lyrics-text">{lyrics}</pre>
             </div>
             <div class="lyrics-col">
-              <h4 class="lyrics-col-label">{langName}</h4>
+              <h4 class="lyrics-col-label">
+                {langName}
+                {languageSlug && <a href={langPage} class="col-lang-link" aria-label={`${langName} language reference`}>↗</a>}
+              </h4>
               <pre class="lyrics-text">{lyricsOriginal}</pre>
             </div>
           </div>
@@ -72,14 +129,31 @@ const langName = language.split('(')[0].trim();
       {/* ── State 3: Conlang only ── */}
       {hasOriginal && !hasEnglish && (
         <>
-          <p class="lyrics-lang-label">{langName}</p>
-          <pre class="lyrics-text">{lyricsOriginal}</pre>
+          <div class="lyrics-lang-header">
+            <p class="lyrics-lang-label">{langName}</p>
+            {languageSlug && <a href={langPage} class="lang-ref-link">→ {langName} reference</a>}
+          </div>
+          {lyricsAnnotated && langConfig ? (
+            <pre class="lyrics-text lyrics-text--annotated" set:html={annotatedHtml} />
+          ) : (
+            <pre class="lyrics-text">{lyricsOriginal}</pre>
+          )}
         </>
       )}
 
     </div>
   </div>
 )}
+
+{/* ── Tooltip singleton ── */}
+<div id="word-tooltip" class="word-tooltip" role="tooltip" aria-hidden="true" hidden>
+  <div class="tooltip-word"></div>
+  <div class="tooltip-def"></div>
+  <div class="tooltip-footer">
+    <span class="tooltip-source"></span>
+    <a class="tooltip-lang-link" href="#" aria-label="View in language reference">↗ reference</a>
+  </div>
+</div>
 
 <script>
   function initLyrics() {
@@ -107,10 +181,8 @@ const langName = language.split('(')[0].trim();
       controls.querySelectorAll<HTMLButtonElement>('.lang-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           const lang = btn.dataset.lang;
-
           controls.querySelectorAll('.lang-btn').forEach((b) => b.classList.remove('active'));
           btn.classList.add('active');
-
           panel.querySelectorAll<HTMLElement>('.lyrics-view').forEach((view) => {
             view.hidden = view.dataset.view !== lang;
           });
@@ -128,6 +200,222 @@ const langName = language.split('(')[0].trim();
     if (body) body.classList.toggle('open', !expanded);
   }
 
-  document.addEventListener('DOMContentLoaded', initLyrics);
-  document.addEventListener('astro:page-load', initLyrics);
+  // ── Tooltip ──
+  function initTooltips() {
+    const tooltip = document.getElementById('word-tooltip') as HTMLElement | null;
+    if (!tooltip) return;
+
+    const tooltipWord   = tooltip.querySelector<HTMLElement>('.tooltip-word')!;
+    const tooltipDef    = tooltip.querySelector<HTMLElement>('.tooltip-def')!;
+    const tooltipSource = tooltip.querySelector<HTMLElement>('.tooltip-source')!;
+    const tooltipLink   = tooltip.querySelector<HTMLAnchorElement>('.tooltip-lang-link')!;
+
+    let pinned = false;
+
+    function showTooltip(target: HTMLElement) {
+      const word   = target.dataset.word   ?? '';
+      const def    = target.dataset.def    ?? '';
+      const source = target.dataset.source ?? '';
+      const href   = target.dataset.langHref ?? '#';
+
+      tooltipWord.textContent   = word;
+      tooltipDef.textContent    = def;
+      tooltipSource.textContent = source;
+      tooltipLink.href          = href;
+
+      tooltip.hidden = false;
+      tooltip.removeAttribute('aria-hidden');
+      positionTooltip(target);
+    }
+
+    function hideTooltip() {
+      if (pinned) return;
+      tooltip.hidden = true;
+      tooltip.setAttribute('aria-hidden', 'true');
+    }
+
+    function positionTooltip(target: HTMLElement) {
+      const rect = target.getBoundingClientRect();
+      const ttRect = tooltip.getBoundingClientRect();
+      const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
+      const vw = window.innerWidth;
+
+      let top  = rect.bottom + scrollY + 6;
+      let left = rect.left   + scrollX;
+
+      // Prevent right-edge overflow
+      if (left + ttRect.width > vw - 12) {
+        left = vw - ttRect.width - 12;
+      }
+      if (left < 8) left = 8;
+
+      tooltip.style.top  = `${top}px`;
+      tooltip.style.left = `${left}px`;
+    }
+
+    // Attach to annotated words — event delegation on document
+    document.addEventListener('mouseover', (e) => {
+      const target = (e.target as HTMLElement).closest<HTMLElement>('.word-annotated');
+      if (!target) return;
+      pinned = false;
+      showTooltip(target);
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const rel = e.relatedTarget as HTMLElement | null;
+      if (rel && (rel === tooltip || tooltip.contains(rel))) return;
+      if (!pinned) hideTooltip();
+    });
+
+    // Tap to pin on mobile
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest<HTMLElement>('.word-annotated');
+      if (target) {
+        e.preventDefault();
+        if (pinned && tooltip.querySelector('.tooltip-word')?.textContent === target.dataset.word) {
+          pinned = false;
+          hideTooltip();
+        } else {
+          pinned = true;
+          showTooltip(target);
+        }
+        return;
+      }
+      // Click outside closes pinned tooltip
+      if (!tooltip.contains(e.target as Node)) {
+        pinned = false;
+        hideTooltip();
+      }
+    });
+
+    // Keyboard: Escape closes tooltip
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        pinned = false;
+        hideTooltip();
+      }
+    });
+
+    // Keep tooltip positioned on scroll/resize
+    document.addEventListener('scroll', () => {
+      if (!tooltip.hidden) {
+        const active = document.querySelector<HTMLElement>('.word-annotated:hover');
+        if (active) positionTooltip(active);
+      }
+    }, { passive: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => { initLyrics(); initTooltips(); });
+  document.addEventListener('astro:page-load',   () => { initLyrics(); initTooltips(); });
 </script>
+
+<style>
+  /* Annotated word underline */
+  .word-annotated {
+    border-bottom: 1px dotted rgba(200, 151, 42, 0.5);
+    cursor: help;
+    transition: border-color 0.15s;
+  }
+  .word-annotated:hover,
+  .word-annotated:focus {
+    border-bottom-color: var(--color-accent);
+    outline: none;
+  }
+
+  /* Tooltip */
+  .word-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: var(--color-surface);
+    border: 1px solid var(--color-accent-dim);
+    padding: 0.6rem 0.85rem;
+    max-width: 260px;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+  /* Allow mouse-over onto tooltip (for link clicking) */
+  .word-tooltip:hover {
+    pointer-events: auto;
+  }
+  .tooltip-word {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+  }
+  .tooltip-def {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+  }
+  .tooltip-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.3rem;
+    margin-top: 0.1rem;
+  }
+  .tooltip-source {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    flex: 1;
+  }
+  .tooltip-lang-link {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    text-decoration: none;
+    white-space: nowrap;
+    pointer-events: auto;
+  }
+  .tooltip-lang-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* Language reference links */
+  .lyrics-lang-ref {
+    margin-bottom: 0.5rem;
+  }
+  .lang-ref-link {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent-dim);
+    text-decoration: none;
+  }
+  .lang-ref-link:hover {
+    color: var(--color-accent);
+  }
+  .lyrics-lang-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .col-lang-link {
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+  }
+  .col-lang-link:hover { opacity: 1; }
+
+  /* pre with annotated spans inherits spacing correctly */
+  .lyrics-text--annotated {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+</style>

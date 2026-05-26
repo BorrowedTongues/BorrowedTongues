@@ -96,9 +96,11 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
           <LyricsExpander
             lyrics={release.tracks[0].lyrics}
             lyricsOriginal={release.tracks[0].lyricsOriginal}
+            lyricsAnnotated={release.tracks[0].lyricsAnnotated}
             trackTitle={release.tracks[0].title}
             id={`${release.id}-0`}
             language={release.language}
+            languageSlug={release.languageSlug}
           />
         </>
       ) : (
@@ -132,9 +134,11 @@ const base = import.meta.env.BASE_URL; // /BorrowedTongues/
                 <LyricsExpander
                   lyrics={track.lyrics}
                   lyricsOriginal={track.lyricsOriginal}
+                  lyricsAnnotated={track.lyricsAnnotated}
                   trackTitle={track.title}
                   id={`${release.id}-${i}`}
                   language={release.language}
+                  languageSlug={release.languageSlug}
                 />
               </li>
             ))}

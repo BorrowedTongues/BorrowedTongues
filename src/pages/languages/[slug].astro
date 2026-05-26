@@ -1,0 +1,544 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { languages, getLanguage } from '../../config/languages';
+import type { VocabEntry, VocabSource } from '../../types/languages';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({
+    params: { slug: lang.slug },
+    props: { lang },
+  }));
+}
+
+const { lang } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Source badge display helpers
+type BadgeStyle = { label: string; cls: string };
+function getBadge(source: VocabSource, lang: typeof Astro.props.lang): BadgeStyle {
+  const label = lang.sourceLabels[source] ?? source;
+  const clsMap: Record<VocabSource, string> = {
+    'canon':    'badge--canon',
+    'derived':  'badge--derived',
+    'fan-dict': 'badge--fan',
+    'new':      'badge--new',
+  };
+  return { label, cls: clsMap[source] };
+}
+
+// Group vocabulary: canon/derived/fan-dict first, new constructions separately
+const newWords = lang.vocabulary.filter(v => v.source === 'new');
+const baseWords = lang.vocabulary.filter(v => v.source !== 'new');
+---
+
+<BaseLayout
+  title={`${lang.displayName} — Language Reference`}
+  description={`Vocabulary, grammar, and derivation notes for ${lang.displayName} as used in Borrowed Tongues releases.`}
+>
+  <div class="lang-page">
+    <div class="container">
+
+      <!-- Header -->
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={base}>Home</a>
+          <span aria-hidden="true"> / </span>
+          <a href={`${base}languages/`}>Languages</a>
+          <span aria-hidden="true"> / </span>
+          <span>{lang.displayName}</span>
+        </nav>
+
+        <div class="lang-title-row">
+          <div>
+            <h1 class="lang-title">{lang.displayName}</h1>
+            {lang.nativeName && lang.nativeName !== lang.displayName && (
+              <p class="lang-native">{lang.nativeName}</p>
+            )}
+          </div>
+        </div>
+        <p class="lang-attribution">
+          Created by <strong>{lang.createdBy}</strong> · {lang.sourceMedia}
+        </p>
+      </header>
+
+      <hr class="gold-rule" />
+
+      <!-- Grammar overview -->
+      <section class="section" id="grammar">
+        <h2 class="section-heading">Grammar Overview</h2>
+        <ul class="grammar-list">
+          {lang.grammarNotes.map(note => (
+            <li class="grammar-item">
+              <strong class="grammar-rule">{note.rule}</strong>
+              {note.detail && <span class="grammar-detail"> — {note.detail}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Sound shifts (Rihan etc.) -->
+      {lang.soundShifts && lang.soundShifts.length > 0 && (
+        <section class="section" id="sound-shifts">
+          <h2 class="section-heading">Sound Shifts</h2>
+          <p class="section-note">Systematic correspondences used to derive words from the parent language.</p>
+          <div class="table-wrap">
+            <table class="vocab-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Shift to</th>
+                  <th>Example</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lang.soundShifts.map(shift => (
+                  <tr>
+                    <td class="cell-word">{shift.from}</td>
+                    <td class="cell-word">{shift.to}</td>
+                    <td class="cell-example">{shift.example ?? '—'}</td>
+                    <td class="cell-notes">{shift.notes ?? ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      <!-- Vocabulary table -->
+      <section class="section" id="vocabulary">
+        <div class="section-title-row">
+          <h2 class="section-heading">Vocabulary</h2>
+          <div class="filter-group" role="group" aria-label="Filter by source">
+            <button class="filter-btn active" data-filter="all">All ({lang.vocabulary.length})</button>
+            <button class="filter-btn" data-filter="canon">Canon</button>
+            <button class="filter-btn" data-filter="derived">Derived</button>
+            <button class="filter-btn" data-filter="new">New ({newWords.length})</button>
+          </div>
+        </div>
+
+        <!-- Source badge legend -->
+        <div class="badge-legend">
+          {(['canon', 'derived', 'fan-dict', 'new'] as VocabSource[]).map(src => {
+            const b = getBadge(src, lang);
+            const hasAny = lang.vocabulary.some(v => v.source === src);
+            return hasAny ? (
+              <span class={`source-badge ${b.cls}`}>{b.label}</span>
+            ) : null;
+          })}
+        </div>
+
+        <div class="table-wrap" id="vocab-table-wrap">
+          <table class="vocab-table" id="vocab-table">
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Definition</th>
+                <th>Source</th>
+                <th>Appears in</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lang.vocabulary.map(entry => {
+                const b = getBadge(entry.source, lang);
+                return (
+                  <tr id={entry.word} data-source={entry.source} class="vocab-row">
+                    <td class="cell-word">
+                      <span class="word-form">{entry.word}</span>
+                      {entry.components && (
+                        <span class="word-components">
+                          {entry.components.join(' + ')}
+                        </span>
+                      )}
+                    </td>
+                    <td class="cell-def">
+                      <span class="def-text">{entry.definition}</span>
+                      {entry.notes && (
+                        <details class="def-notes">
+                          <summary class="def-notes-toggle">notes</summary>
+                          <p class="def-notes-body">{entry.notes}</p>
+                        </details>
+                      )}
+                    </td>
+                    <td class="cell-source">
+                      <span class={`source-badge ${b.cls}`}>{b.label}</span>
+                    </td>
+                    <td class="cell-appears">
+                      {entry.appearsIn?.map(slug => (
+                        <a href={`${base}releases/${slug}/`} class="appears-link">{slug}</a>
+                      ))}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- New constructions expanded section -->
+      {newWords.length > 0 && (
+        <section class="section" id="new-constructions">
+          <h2 class="section-heading">New Constructions</h2>
+          <p class="section-note">
+            Words coined for Borrowed Tongues releases. Each entry documents the derivation
+            reasoning so the logic is transparent and reviewable.
+          </p>
+          <dl class="constructions-list">
+            {newWords.map(entry => (
+              <div class="construction-item" id={`new-${entry.word}`}>
+                <dt class="construction-word">{entry.word}</dt>
+                <dd class="construction-body">
+                  <p class="construction-def">{entry.definition}</p>
+                  {entry.components && (
+                    <p class="construction-components">
+                      <span class="construction-label">Components:</span>{' '}
+                      {entry.components.join(' + ')}
+                    </p>
+                  )}
+                  {entry.notes && (
+                    <p class="construction-notes">{entry.notes}</p>
+                  )}
+                  {entry.appearsIn && (
+                    <p class="construction-appears">
+                      <span class="construction-label">In:</span>{' '}
+                      {entry.appearsIn.map((slug, i) => (
+                        <>
+                          {i > 0 && ', '}
+                          <a href={`${base}releases/${slug}/`} class="appears-link">{slug}</a>
+                        </>
+                      ))}
+                    </p>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  function initFilters() {
+    const table = document.getElementById('vocab-table');
+    if (!table) return;
+
+    const filterGroup = document.querySelector<HTMLElement>('.filter-group');
+    if (!filterGroup || filterGroup.dataset.filterInit) return;
+    filterGroup.dataset.filterInit = 'true';
+
+    filterGroup.querySelectorAll<HTMLButtonElement>('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter ?? 'all';
+
+        filterGroup.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        table.querySelectorAll<HTMLTableRowElement>('.vocab-row').forEach(row => {
+          if (filter === 'all') {
+            row.hidden = false;
+          } else {
+            row.hidden = row.dataset.source !== filter;
+          }
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFilters);
+  document.addEventListener('astro:page-load', initFilters);
+</script>
+
+<style>
+  .lang-page {
+    padding-block: 3rem 5rem;
+  }
+
+  /* ── Header ── */
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .breadcrumb a { color: var(--color-text-secondary); }
+  .breadcrumb a:hover { color: var(--color-accent); }
+
+  .lang-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+  .lang-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 0.2rem;
+  }
+  .lang-native {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.25rem;
+  }
+  .lang-attribution {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 3rem;
+  }
+  .section-heading {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+  .section-note {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+    max-width: 62ch;
+  }
+  .section-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  .section-title-row .section-heading {
+    margin-bottom: 0;
+  }
+
+  /* ── Grammar list ── */
+  .grammar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .grammar-item {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    padding: 0.6rem 1rem;
+    border-left: 2px solid var(--color-accent-dim);
+    background: var(--color-surface);
+  }
+  .grammar-rule {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-primary);
+  }
+  .grammar-detail {
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Filters ── */
+  .filter-group {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    width: fit-content;
+  }
+  .filter-btn {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+  }
+  .filter-btn:last-child { border-right: none; }
+  .filter-btn:hover { color: var(--color-text-primary); background: var(--color-border); }
+  .filter-btn.active { color: var(--color-accent); }
+
+  /* ── Badge legend ── */
+  .badge-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Source badges ── */
+  .source-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.15em 0.5em;
+    border: 1px solid;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .badge--canon   { border-color: var(--color-accent-dim); color: var(--color-accent); }
+  .badge--derived { border-color: #5a4a1a; color: #a07828; }
+  .badge--fan     { border-color: #1a3a4a; color: #3a8aaa; }
+  .badge--new     { border-color: var(--color-punk); color: #c44; }
+
+  /* ── Vocabulary table ── */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+  }
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .vocab-table thead {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .vocab-table th {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .vocab-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+  .vocab-row:last-child td { border-bottom: none; }
+  .vocab-row:hover { background: var(--color-surface); }
+
+  .cell-word { min-width: 130px; }
+  .word-form {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--color-text-primary);
+    display: block;
+  }
+  .word-components {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.04em;
+    display: block;
+    margin-top: 0.15rem;
+  }
+
+  .cell-def { max-width: 360px; }
+  .def-text {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .def-notes { margin-top: 0.4rem; }
+  .def-notes-toggle {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent-dim);
+    cursor: pointer;
+    list-style: none;
+  }
+  .def-notes-toggle::-webkit-details-marker { display: none; }
+  .def-notes-toggle:hover { color: var(--color-accent); }
+  .def-notes-body {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    padding-top: 0.4rem;
+    max-width: 48ch;
+  }
+
+  .cell-source { white-space: nowrap; }
+  .cell-appears { white-space: nowrap; }
+  .appears-link {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--color-accent-dim);
+    display: block;
+  }
+  .appears-link:hover { color: var(--color-accent); }
+
+  /* ── New constructions ── */
+  .constructions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .construction-item {
+    border: 1px solid var(--color-border);
+    border-top: none;
+    padding: 1.1rem 1.25rem;
+  }
+  .construction-item:first-child { border-top: 1px solid var(--color-border); }
+  .construction-item:hover { background: var(--color-surface); }
+
+  .construction-word {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .construction-def {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.4rem;
+  }
+  .construction-components,
+  .construction-notes,
+  .construction-appears {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0.25rem;
+    max-width: 68ch;
+  }
+  .construction-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-right: 0.3rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .section-title-row { flex-direction: column; gap: 0.5rem; }
+    .cell-def { max-width: 200px; }
+    .lang-title-row { flex-direction: column; }
+  }
+</style>
