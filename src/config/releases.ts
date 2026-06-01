@@ -1157,6 +1157,412 @@ Valyria [[perzosa|perzo]] [[morghontas|morghūljagon]].
     ],
   },
   {
+    id: 'antigone',
+    title: 'Antigone',
+    subtitle: 'After Sophocles',
+    type: 'album',
+    language: 'Rihan (Romulan)',
+    languageSlug: 'rihan',
+    genre: 'Theatrical Rock',
+    sourceText: 'Antigone by Sophocles (441 BCE, public domain)',
+    year: 2026,
+    coverArt: 'antigone-cover.png',
+    soundcloudPlaylistUrl: 'https://soundcloud.com/borrowed_tongues/sets/antigone?si=f741a60849fb422b81677b3e4c00722e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+    description:
+      "A two-track theatrical rock album adapting Sophocles' Antigone in Rihan. Track one follows Antigone's defiance and burial of Polynices; track two follows her to the cave, the veil, and the catastrophe that breaks Creon.",
+    tracks: [
+      {
+        title: 'Fvil Neh-Ihwhei',
+        soundcloudUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2329882397&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+        lyrics: `Verse 1:
+I heard the herald reading from the wall at dawn,
+Every word landing like a stone dropped into still water.
+They stood around me nodding — yes, yes, of course,
+A traitor should not have what honest men are given.
+And I thought: that is my brother lying in the field.
+Not a traitor. Not a weapon. My brother.
+The one I learned to walk behind,
+The one who knew my name before I grew into it.
+
+Verse 2:
+I went to Ismene in the dark before the city woke,
+My hands already knowing what my mouth hadn't finished saying.
+She looked at me the way the frightened look at fire —
+"You'll die for this. The law is set. There is no winning."
+She wasn't wrong. I knew she wasn't wrong.
+I held her face and told her: stay inside and live.
+There are two kinds of love —
+The kind that keeps you safe,
+And the kind that walks out into the dark anyway.
+
+Chorus:
+The earth is not the king's —
+It never was, it never will be!
+The dead are not the king's —
+They answer to a law that was old
+Before his name was spoken,
+Before this city had a wall,
+Before there was a Thebes to save or lose at all!
+I will put my hands into the soil —
+I will give him back the dark —
+And no decree written by a frightened man
+Will make that wrong!
+
+Verse 3:
+They brought me to him just as the morning came.
+He looked at me the way that power looks at opposition —
+Not as a person, as a problem to be solved.
+"Did you know of this decree?" Yes.
+"And you defied it?" Yes.
+"You understand the punishment?"
+I understood the punishment before I lifted a single handful of earth.
+That's not defiance, Creon. That's just arithmetic.
+
+Verse 4:
+He said I was in love with death — that I was reckless,
+That I'd throw my life away for nothing but a gesture.
+He doesn't understand that it was not a gesture.
+He will never understand — and that is his catastrophe, not mine.
+He asked if Haemon's name meant nothing —
+If the life we were supposed to build meant nothing —
+And I looked at the man I was going to marry
+And thought: the shape of love is not always the shape of survival.
+
+Outro:
+I won't wait for the executioner.
+There's a veil I've been saving
+For a different ceremony.`,
+        lyricsOriginal: `Au vaed lihr hrrau fvil, rh'aen neh —
+Haen'hei — neh uihvu'han.
+Au irri: fvil hrrau neh —
+Au gaeth haen'hei orheika.
+
+Neh arhem neh — fvil hna.
+Gaeth hrrau laorh — haen'hei.
+Au gaeth — haen'hei orheika —
+Vihroi au — orheika llhei.
+
+Au gaeth Ismene — afvu.
+Haenhe au ssuej — neh rhaarh.
+Llhei firh au — s'ten Okhala —
+"Neh rhaarh — arhem'sahe."
+
+Au aehjae llhei — phralae:
+I-jol eial, i-jol hssai —
+Irri: cha'e i-jol —
+Cha'e i-jol — neh rhienn.
+
+Fvil — fvillha'rhienn —
+Neh lhai, neh rheh en —
+Heis'an neh — rhienn —
+Ulhei — rhienn en!
+
+Au ihwhei hrrau fvil —
+Au bont — haen'hei neh.
+Neh lihr — hssai'sahe —
+Arhem'sahe — au!
+
+Ve' hriah au — rh'aen mayri gaeth.
+Fvillha firh — neh dhhaol hna.
+Neh dhhaol — laorh neiss.
+"Au ssuej — arhem'sahe hna?"
+
+"Au ssuej?" Daie. "Au hssai?"
+Au ssuej dirhae — neh hna.
+Neh hssai'sahe — Creon hna.
+Shie en — arhem'sahe au.
+
+Phralae fvillha — heis'he hssai.
+Heisae'ae — neh grukhai.
+Fvillha neh ssuej — hssai'sahe.
+Rhienn'laorh fvillha — grukhai.
+
+Fvillha nihroi — Haemon hna.
+Anna'hei rhienn'sahe —
+Au firh — anna'hei irri.
+Au irri — neh pangaere.
+
+Au steirhn neh dirhae'han —
+Daefv au — anna'ae —
+Rhe ejhoi hna.`,
+        lyricsAnnotated: `Au vaed lihr hrrau [[fvil]], rh'aen neh —
+[[Haen'hei]] — neh [[uihvu'han]].
+Au irri: [[fvil]] hrrau neh —
+Au gaeth [[haen'hei]] orheika.
+
+Neh arhem neh — [[fvil]] hna.
+Gaeth hrrau laorh — [[haen'hei]].
+Au gaeth — [[haen'hei]] orheika —
+Vihroi au — orheika [[llhei]].
+
+Au gaeth Ismene — [[afvu]].
+Haenhe au ssuej — neh rhaarh.
+[[Llhei]] firh au — s'ten Okhala —
+"Neh rhaarh — [[arhem'sahe]]."
+
+Au aehjae [[llhei]] — phralae:
+[[I-jol]] eial, [[i-jol]] hssai —
+Irri: cha'e [[i-jol]] —
+Cha'e [[i-jol]] — neh rhienn.
+
+[[Fvil]] — fvillha'rhienn —
+Neh lhai, neh rheh en —
+[[Heis'an]] neh — rhienn —
+Ulhei — rhienn en!
+
+Au [[ihwhei]] hrrau [[fvil]] —
+Au bont — [[haen'hei]] neh.
+Neh lihr — [[hssai'sahe]] —
+[[Arhem'sahe]] — au!
+
+Ve' hriah au — rh'aen mayri gaeth.
+Fvillha firh — neh dhhaol hna.
+Neh dhhaol — laorh neiss.
+"Au ssuej — [[arhem'sahe]] hna?"
+
+"Au ssuej?" Daie. "Au hssai?"
+Au ssuej dirhae — neh hna.
+Neh [[hssai'sahe]] — Creon hna.
+Shie en — [[arhem'sahe]] au.
+
+Phralae fvillha — heis'he hssai.
+Heisae'ae — neh grukhai.
+Fvillha neh ssuej — [[hssai'sahe]].
+Rhienn'laorh fvillha — grukhai.
+
+Fvillha nihroi — Haemon hna.
+[[Anna'hei]] [[rhienn'sahe]] —
+Au firh — [[anna'hei]] irri.
+Au irri — neh pangaere.
+
+Au steirhn neh dirhae'han —
+[[Daefv]] au — anna'ae —
+Rhe [[ejhoi]] hna.`,
+      },
+      {
+        title: 'Daefv',
+        soundcloudUrl: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2329975571&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+        lyrics: `Verse 1:
+The cave has walls of limestone and a smell of old water.
+They left me bread and a lamp with oil for three days —
+The mercy of a man who doesn't want to call it murder,
+Just wants the problem gone before the next petition.
+I sat with the lamp and I thought about my father
+Blind at the crossroads, cursed before he understood the question.
+I thought about my mother. I thought about my brothers.
+And then I stopped thinking about the past and thought about the veil.
+
+Verse 2:
+Haemon gave it to me in the olive grove last spring —
+Green and gold, shot through with something that caught the light.
+I'd been saving it. The way you save things
+That feel too good for ordinary days,
+That feel like they belong to some future occasion
+Still taking shape somewhere just beyond the next turning.
+Well. Here is the occasion.
+Here is the cave. Here is the veil.
+Here is the only ceremony left
+That Creon cannot read a law against.
+
+Chorus:
+I choose the hour.
+I choose the manner.
+I choose to go with my name intact —
+Not broken open by a stranger's hand,
+Not waiting to be used as evidence
+Of what happens when you don't obey.
+I was Antigone —
+Daughter, sister, the woman who decided
+That the law of blood runs deeper than the law of men —
+And I walked into this dark
+With my eyes open.
+I choose the hour. It is now.
+
+Verse 3:
+Haemon found her when the torch had burned down to the iron.
+He stood there in the dark with his hands at his sides
+And made a sound that wasn't quite a word —
+More like the last air leaving a room when the door closes.
+He turned to his father in the entrance of the cave —
+And Creon, who had come too late with pardons in his hands,
+Reached out — and Haemon drove his sword into himself
+And died with his arms around her in the dark.
+
+Verse 4:
+The messenger arrived at the palace
+While the queen was at the altar making offerings.
+He chose his words with care, the way you choose your footing
+On a path that runs beside a very long drop.
+Eurydice listened. Thanked him. Sent him out.
+Walked to her own chamber. Locked the door.
+They found her with a knife and with a curse
+Still on her lips — the last word she ever aimed at Creon.
+
+Final Chorus:
+The earth is not the king's —
+(she said it in the dark)
+The dead belong to something older —
+(she said it to the walls)
+And love is not obedience —
+(Haemon said it with his hands)
+And grief is not a crime —
+(Eurydice said it at the altar)
+And a man who cannot bend
+(Creon in the empty hall)
+Will find that he has broken —
+(Creon in the empty hall)
+Everything.
+
+Outro:
+I was right.
+I was —
+I was trying to hold it together.
+I was —
+[breath]`,
+        lyricsOriginal: `Uaefv: fvil fvaerh — tam hna.
+Ve' bont ehhae — afvu.
+Teillh fvillha neh — hna.
+Au irri rrh'e — hna daefv.
+
+Au steirhn — ehhae hna.
+Neh firh — bhveinu ssuej.
+Au irri haen'hei — hna.
+Au irri rrh'e — hna daefv.
+
+Haemon bont — daefv au lhai.
+Lhaiy — ehhae isneih hna.
+Au pol daefv hnnial — lhai.
+Rhe'ae mosaram — hna.
+
+Mrht. Rh'aen hna.
+Uaefv hna. Daefv hna.
+Ihwhei'talla — neh lihr.
+Neh arhem'sahe hna.
+
+Au ejhoi — rh'aen hna.
+Au ejhoi — ssaed hna.
+
+Au ejhoi gaeth — firh.
+Neh steirhn — laorh firh.
+
+Na — Antigone.
+Veoth'ei — ejhoi.
+
+Au ejhoi — rh'aen hna.
+
+Haemon firh — Okhala.
+Gaeth hrrau afvu — hna tam.
+Phralae uan — neh haenhe.
+Mosaram — rhe — afvu.
+
+Gaeth hrrau fvillha — uaefv.
+Creon — hisl u' haenhe.
+Haemon heisae — tam.
+Fvillha hhaemn — afvu.
+
+Nneikha lehrei — khoi.
+Gaeth ejhoi — hlra diamn.
+Eurydice vaed — khoi.
+Phralae fvoerrh — uan'lihr.
+
+Rrh'e ihwhei — fvillha khoi.
+Gaeth hrrau — rhe hna diamn.
+Ve' itaeru — khoi.
+Phralae fvoerrh — uan'lihr.
+
+Fvil neh fvillha'rhienn —
+(phralae — afvu)
+Heis'an rhienn'sahe ulhei —
+(phralae — hrrau fvaerh)
+I-jol neh rhai —
+(Haemon — haenhe)
+Uan neh hssai —
+(Eurydice — hrrau kholhr)
+Fvillha — neh akheamn —
+(Creon — hwaveyiir afvu)
+Rhienn'laorh —
+(Creon — hwaveyiir afvu)
+En.
+En.
+
+Au sthe —
+Au —
+Au steirhn pangaere —
+Au —`,
+        lyricsAnnotated: `[[Uaefv]]: fvil fvaerh — tam hna.
+Ve' bont ehhae — afvu.
+Teillh fvillha neh — hna.
+Au irri rrh'e — hna [[daefv]].
+
+Au steirhn — ehhae hna.
+Neh firh — bhveinu ssuej.
+Au irri haen'hei — hna.
+Au irri rrh'e — hna [[daefv]].
+
+Haemon bont — [[daefv]] au lhai.
+Lhaiy — ehhae isneih hna.
+Au pol [[daefv]] hnnial — lhai.
+Rhe'ae mosaram — hna.
+
+Mrht. Rh'aen hna.
+[[Uaefv]] hna. [[Daefv]] hna.
+[[Ihwhei'talla]] — neh lihr.
+Neh arhem'sahe hna.
+
+Au [[ejhoi]] — rh'aen hna.
+Au [[ejhoi]] — ssaed hna.
+
+Au [[ejhoi]] gaeth — firh.
+Neh steirhn — laorh firh.
+
+Na — Antigone.
+Veoth'ei — [[ejhoi]].
+
+Au [[ejhoi]] — rh'aen hna.
+
+Haemon firh — Okhala.
+Gaeth hrrau afvu — hna tam.
+Phralae [[uan]] — neh [[haenhe]].
+Mosaram — rhe — afvu.
+
+Gaeth hrrau fvillha — [[uaefv]].
+Creon — hisl u' [[haenhe]].
+Haemon [[heisae]] — tam.
+Fvillha hhaemn — afvu.
+
+Nneikha lehrei — [[khoi]].
+Gaeth [[ejhoi]] — hlra diamn.
+Eurydice vaed — [[khoi]].
+Phralae [[fvoerrh]] — [[uan'lihr]].
+
+Rrh'e ihwhei — fvillha [[khoi]].
+Gaeth hrrau — rhe hna diamn.
+Ve' itaeru — [[khoi]].
+Phralae [[fvoerrh]] — [[uan'lihr]].
+
+Fvil neh fvillha'rhienn —
+(phralae — afvu)
+Heis'an rhienn'sahe ulhei —
+(phralae — hrrau fvaerh)
+I-jol neh rhai —
+(Haemon — [[haenhe]])
+[[Uan]] neh hssai —
+(Eurydice — hrrau kholhr)
+Fvillha — neh akheamn —
+(Creon — [[hwaveyiir]] afvu)
+[[Rhienn'laorh]] —
+(Creon — [[hwaveyiir]] afvu)
+En.
+En.
+
+Au sthe —
+Au —
+Au steirhn pangaere —
+Au —`,
+      },
+    ],
+  },
+  {
     id: 'banchova-hatu',
     title: 'Banchova Hatu',
     subtitle: 'Hope Will Be Gone',
