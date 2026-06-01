@@ -1285,59 +1285,59 @@ Au irri — neh pangaere.
 Au steirhn neh dirhae'han —
 Daefv au — anna'ae —
 Rhe ejhoi hna.`,
-        lyricsAnnotated: `Au vaed lihr hrrau [[fvil]], rh'aen neh —
-[[Haen'hei]] — neh [[uihvu'han]].
-Au irri: [[fvil]] hrrau neh —
-Au gaeth [[haen'hei]] orheika.
+        lyricsAnnotated: `Au vaed lihr hrrau [[fvil|earth/soil]], rh'aen neh —
+[[Haen'hei|brother]] — neh [[uihvu'han|traitor]].
+Au irri: [[fvil|earth/soil]] hrrau neh —
+Au [[gaeth|to go / walk]] [[haen'hei|brother]] [[orheika|ancestor / that which came before]].
 
-Neh arhem neh — [[fvil]] hna.
-Gaeth hrrau laorh — [[haen'hei]].
-Au gaeth — [[haen'hei]] orheika —
-Vihroi au — orheika [[llhei]].
+Neh arhem neh — [[fvil|earth/soil]] hna.
+[[Gaeth|to go / walk]] hrrau laorh — [[haen'hei|brother]].
+Au [[gaeth|to go / walk]] — [[haen'hei|brother]] [[orheika|ancestor / that which came before]] —
+Vihroi au — [[orheika|ancestor / that which came before]] [[llhei|sister]].
 
-Au gaeth Ismene — [[afvu]].
+Au [[gaeth|to go / walk]] Ismene — [[afvu|darkness]].
 Haenhe au ssuej — neh rhaarh.
-[[Llhei]] firh au — s'ten Okhala —
-"Neh rhaarh — [[arhem'sahe]]."
+[[Llhei|sister]] firh au — s'ten Okhala —
+"Neh rhaarh — [[arhem'sahe|the binding law]]."
 
-Au aehjae [[llhei]] — phralae:
-[[I-jol]] eial, [[i-jol]] hssai —
-Irri: cha'e [[i-jol]] —
-Cha'e [[i-jol]] — neh rhienn.
+Au aehjae [[llhei|sister]] — [[phralae|to speak]]:
+[[I-jol|love]] eial, [[i-jol|love]] hssai —
+Irri: cha'e [[i-jol|love]] —
+Cha'e [[i-jol|love]] — neh rhienn.
 
-[[Fvil]] — fvillha'rhienn —
+[[Fvil|earth/soil]] — fvillha'rhienn —
 Neh lhai, neh rheh en —
-[[Heis'an]] neh — rhienn —
+[[Heis'an|the dead ones]] neh — rhienn —
 Ulhei — rhienn en!
 
-Au [[ihwhei]] hrrau [[fvil]] —
-Au bont — [[haen'hei]] neh.
-Neh lihr — [[hssai'sahe]] —
-[[Arhem'sahe]] — au!
+Au [[ihwhei|to bury]] hrrau [[fvil|earth/soil]] —
+Au bont — [[haen'hei|brother]] neh.
+Neh lihr — [[hssai'sahe|defiance as ruling passion]] —
+[[Arhem'sahe|the binding law]] — au!
 
-Ve' hriah au — rh'aen mayri gaeth.
+Ve' hriah au — rh'aen mayri [[gaeth|to go / walk]].
 Fvillha firh — neh dhhaol hna.
 Neh dhhaol — laorh neiss.
-"Au ssuej — [[arhem'sahe]] hna?"
+"Au ssuej — [[arhem'sahe|the binding law]] hna?"
 
 "Au ssuej?" Daie. "Au hssai?"
 Au ssuej dirhae — neh hna.
-Neh [[hssai'sahe]] — Creon hna.
-Shie en — [[arhem'sahe]] au.
+Neh [[hssai'sahe|defiance as ruling passion]] — Creon hna.
+Shie en — [[arhem'sahe|the binding law]] au.
 
-Phralae fvillha — heis'he hssai.
+[[Phralae|to speak]] fvillha — heis'he hssai.
 Heisae'ae — neh grukhai.
-Fvillha neh ssuej — [[hssai'sahe]].
+Fvillha neh ssuej — [[hssai'sahe|defiance as ruling passion]].
 Rhienn'laorh fvillha — grukhai.
 
 Fvillha nihroi — Haemon hna.
-[[Anna'hei]] [[rhienn'sahe]] —
-Au firh — [[anna'hei]] irri.
+[[Anna'hei|betrothed]] [[rhienn'sahe|blood-law]] —
+Au firh — [[anna'hei|betrothed]] irri.
 Au irri — neh pangaere.
 
 Au steirhn neh dirhae'han —
-[[Daefv]] au — anna'ae —
-Rhe [[ejhoi]] hna.`,
+[[Daefv|veil]] au — anna'ae —
+Rhe [[ejhoi|to choose with finality]] hna.`,
       },
       {
         title: 'Daefv',
@@ -1489,69 +1489,69 @@ Au sthe —
 Au —
 Au steirhn pangaere —
 Au —`,
-        lyricsAnnotated: `[[Uaefv]]: fvil fvaerh — tam hna.
-Ve' bont ehhae — afvu.
+        lyricsAnnotated: `[[Uaefv|cave]]: fvil [[fvaerh|stone]] — [[tam|still / quiet]] hna.
+Ve' bont ehhae — [[afvu|darkness]].
 Teillh fvillha neh — hna.
-Au irri rrh'e — hna [[daefv]].
+Au irri rrh'e — hna [[daefv|veil]].
 
 Au steirhn — ehhae hna.
 Neh firh — bhveinu ssuej.
 Au irri haen'hei — hna.
-Au irri rrh'e — hna [[daefv]].
+Au irri rrh'e — hna [[daefv|veil]].
 
-Haemon bont — [[daefv]] au lhai.
+Haemon bont — [[daefv|veil]] au lhai.
 Lhaiy — ehhae isneih hna.
-Au pol [[daefv]] hnnial — lhai.
-Rhe'ae mosaram — hna.
+Au pol [[daefv|veil]] hnnial — lhai.
+Rhe'ae [[mosaram|wind / weather]] — hna.
 
 Mrht. Rh'aen hna.
-[[Uaefv]] hna. [[Daefv]] hna.
-[[Ihwhei'talla]] — neh lihr.
+[[Uaefv|cave]] hna. [[Daefv|veil]] hna.
+[[Ihwhei'talla|burial duty]] — neh lihr.
 Neh arhem'sahe hna.
 
-Au [[ejhoi]] — rh'aen hna.
-Au [[ejhoi]] — ssaed hna.
+Au [[ejhoi|to choose with finality]] — rh'aen hna.
+Au [[ejhoi|to choose with finality]] — ssaed hna.
 
-Au [[ejhoi]] gaeth — firh.
+Au [[ejhoi|to choose with finality]] gaeth — firh.
 Neh steirhn — laorh firh.
 
 Na — Antigone.
-Veoth'ei — [[ejhoi]].
+Veoth'ei — [[ejhoi|to choose with finality]].
 
-Au [[ejhoi]] — rh'aen hna.
+Au [[ejhoi|to choose with finality]] — rh'aen hna.
 
 Haemon firh — Okhala.
-Gaeth hrrau afvu — hna tam.
-Phralae [[uan]] — neh [[haenhe]].
-Mosaram — rhe — afvu.
+Gaeth hrrau [[afvu|darkness]] — hna [[tam|still / quiet]].
+Phralae [[uan|grief/anguish]] — neh [[haenhe|hands/arms]].
+[[Mosaram|wind / weather]] — rhe — [[afvu|darkness]].
 
-Gaeth hrrau fvillha — [[uaefv]].
-Creon — hisl u' [[haenhe]].
-Haemon [[heisae]] — tam.
-Fvillha hhaemn — afvu.
+Gaeth hrrau fvillha — [[uaefv|cave]].
+Creon — hisl u' [[haenhe|hands/arms]].
+Haemon [[heisae|to die]] — [[tam|still / quiet]].
+Fvillha hhaemn — [[afvu|darkness]].
 
-Nneikha lehrei — [[khoi]].
-Gaeth [[ejhoi]] — hlra diamn.
-Eurydice vaed — [[khoi]].
-Phralae [[fvoerrh]] — [[uan'lihr]].
+Nneikha lehrei — [[khoi|to lock / close off]].
+Gaeth [[ejhoi|to choose with finality]] — hlra diamn.
+Eurydice vaed — [[khoi|to lock / close off]].
+Phralae [[fvoerrh|last / final]] — [[uan'lihr|grief-proclamation / dying curse]].
 
-Rrh'e ihwhei — fvillha [[khoi]].
+Rrh'e ihwhei — fvillha [[khoi|to lock / close off]].
 Gaeth hrrau — rhe hna diamn.
-Ve' itaeru — [[khoi]].
-Phralae [[fvoerrh]] — [[uan'lihr]].
+Ve' itaeru — [[khoi|to lock / close off]].
+Phralae [[fvoerrh|last / final]] — [[uan'lihr|grief-proclamation / dying curse]].
 
 Fvil neh fvillha'rhienn —
-(phralae — afvu)
+(phralae — [[afvu|darkness]])
 Heis'an rhienn'sahe ulhei —
-(phralae — hrrau fvaerh)
+(phralae — hrrau [[fvaerh|stone]])
 I-jol neh rhai —
-(Haemon — [[haenhe]])
-[[Uan]] neh hssai —
+(Haemon — [[haenhe|hands/arms]])
+[[Uan|grief/anguish]] neh hssai —
 (Eurydice — hrrau kholhr)
 Fvillha — neh akheamn —
-(Creon — [[hwaveyiir]] afvu)
-[[Rhienn'laorh]] —
-(Creon — [[hwaveyiir]] afvu)
+(Creon — [[hwaveyiir|command hall / empty throne room]] [[afvu|darkness]])
+[[Rhienn'laorh|blood-catastrophe]] —
+(Creon — [[hwaveyiir|command hall / empty throne room]] [[afvu|darkness]])
 En.
 En.
 
