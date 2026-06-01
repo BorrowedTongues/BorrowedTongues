@@ -1285,59 +1285,59 @@ Au irri — neh pangaere.
 Au steirhn neh dirhae'han —
 Daefv au — anna'ae —
 Rhe ejhoi hna.`,
-        lyricsAnnotated: `Au vaed lihr hrrau [[fvil|earth/soil]], rh'aen neh —
-[[Haen'hei|brother]] — neh [[uihvu'han|traitor]].
-Au irri: [[fvil|earth/soil]] hrrau neh —
-Au [[gaeth|to go / walk]] [[haen'hei|brother]] [[orheika|ancestor / that which came before]].
+        lyricsAnnotated: `Au vaed lihr hrrau [[fvil|fvil]], rh'aen neh —
+[[Haen'hei|haen'hei]] — neh [[uihvu'han|uihvu'han]].
+Au irri: [[fvil|fvil]] hrrau neh —
+Au [[gaeth|gaeth]] [[haen'hei|haen'hei]] [[orheika|orheika]].
 
-Neh arhem neh — [[fvil|earth/soil]] hna.
-[[Gaeth|to go / walk]] hrrau laorh — [[haen'hei|brother]].
-Au [[gaeth|to go / walk]] — [[haen'hei|brother]] [[orheika|ancestor / that which came before]] —
-Vihroi au — [[orheika|ancestor / that which came before]] [[llhei|sister]].
+Neh arhem neh — [[fvil|fvil]] hna.
+[[Gaeth|gaeth]] hrrau laorh — [[haen'hei|haen'hei]].
+Au [[gaeth|gaeth]] — [[haen'hei|haen'hei]] [[orheika|orheika]] —
+Vihroi au — [[orheika|orheika]] [[llhei|llhei]].
 
-Au [[gaeth|to go / walk]] Ismene — [[afvu|darkness]].
+Au [[gaeth|gaeth]] Ismene — [[afvu|afvu]].
 Haenhe au ssuej — neh rhaarh.
-[[Llhei|sister]] firh au — s'ten Okhala —
-"Neh rhaarh — [[arhem'sahe|the binding law]]."
+[[Llhei|llhei]] firh au — s'ten Okhala —
+"Neh rhaarh — [[arhem'sahe|arhem'sahe]]."
 
-Au aehjae [[llhei|sister]] — [[phralae|to speak]]:
-[[I-jol|love]] eial, [[i-jol|love]] hssai —
-Irri: cha'e [[i-jol|love]] —
-Cha'e [[i-jol|love]] — neh rhienn.
+Au aehjae [[llhei|llhei]] — [[phralae|phralae]]:
+[[I-jol|i-jol]] eial, [[i-jol|i-jol]] hssai —
+Irri: cha'e [[i-jol|i-jol]] —
+Cha'e [[i-jol|i-jol]] — neh rhienn.
 
-[[Fvil|earth/soil]] — fvillha'rhienn —
+[[Fvil|fvil]] — fvillha'rhienn —
 Neh lhai, neh rheh en —
-[[Heis'an|the dead ones]] neh — rhienn —
+[[Heis'an|heis'an]] neh — rhienn —
 Ulhei — rhienn en!
 
-Au [[ihwhei|to bury]] hrrau [[fvil|earth/soil]] —
-Au bont — [[haen'hei|brother]] neh.
-Neh lihr — [[hssai'sahe|defiance as ruling passion]] —
-[[Arhem'sahe|the binding law]] — au!
+Au [[ihwhei|ihwhei]] hrrau [[fvil|fvil]] —
+Au bont — [[haen'hei|haen'hei]] neh.
+Neh lihr — [[hssai'sahe|hssai'sahe]] —
+[[Arhem'sahe|arhem'sahe]] — au!
 
-Ve' hriah au — rh'aen mayri [[gaeth|to go / walk]].
+Ve' hriah au — rh'aen mayri [[gaeth|gaeth]].
 Fvillha firh — neh dhhaol hna.
 Neh dhhaol — laorh neiss.
-"Au ssuej — [[arhem'sahe|the binding law]] hna?"
+"Au ssuej — [[arhem'sahe|arhem'sahe]] hna?"
 
 "Au ssuej?" Daie. "Au hssai?"
 Au ssuej dirhae — neh hna.
-Neh [[hssai'sahe|defiance as ruling passion]] — Creon hna.
-Shie en — [[arhem'sahe|the binding law]] au.
+Neh [[hssai'sahe|hssai'sahe]] — Creon hna.
+Shie en — [[arhem'sahe|arhem'sahe]] au.
 
-[[Phralae|to speak]] fvillha — heis'he hssai.
+[[Phralae|phralae]] fvillha — heis'he hssai.
 Heisae'ae — neh grukhai.
-Fvillha neh ssuej — [[hssai'sahe|defiance as ruling passion]].
+Fvillha neh ssuej — [[hssai'sahe|hssai'sahe]].
 Rhienn'laorh fvillha — grukhai.
 
 Fvillha nihroi — Haemon hna.
-[[Anna'hei|betrothed]] [[rhienn'sahe|blood-law]] —
-Au firh — [[anna'hei|betrothed]] irri.
+[[Anna'hei|anna'hei]] [[rhienn'sahe|rhienn'sahe]] —
+Au firh — [[anna'hei|anna'hei]] irri.
 Au irri — neh pangaere.
 
 Au steirhn neh dirhae'han —
-[[Daefv|veil]] au — anna'ae —
-Rhe [[ejhoi|to choose with finality]] hna.`,
+[[Daefv|daefv]] au — anna'ae —
+Rhe [[ejhoi|ejhoi]] hna.`,
       },
       {
         title: 'Daefv',
@@ -1489,69 +1489,69 @@ Au sthe —
 Au —
 Au steirhn pangaere —
 Au —`,
-        lyricsAnnotated: `[[Uaefv|cave]]: fvil [[fvaerh|stone]] — [[tam|still / quiet]] hna.
-Ve' bont ehhae — [[afvu|darkness]].
+        lyricsAnnotated: `[[Uaefv|uaefv]]: fvil [[fvaerh|fvaerh]] — [[tam|tam]] hna.
+Ve' bont ehhae — [[afvu|afvu]].
 Teillh fvillha neh — hna.
-Au irri rrh'e — hna [[daefv|veil]].
+Au irri rrh'e — hna [[daefv|daefv]].
 
 Au steirhn — ehhae hna.
 Neh firh — bhveinu ssuej.
 Au irri haen'hei — hna.
-Au irri rrh'e — hna [[daefv|veil]].
+Au irri rrh'e — hna [[daefv|daefv]].
 
-Haemon bont — [[daefv|veil]] au lhai.
+Haemon bont — [[daefv|daefv]] au lhai.
 Lhaiy — ehhae isneih hna.
-Au pol [[daefv|veil]] hnnial — lhai.
-Rhe'ae [[mosaram|wind / weather]] — hna.
+Au pol [[daefv|daefv]] hnnial — lhai.
+Rhe'ae [[mosaram|mosaram]] — hna.
 
 Mrht. Rh'aen hna.
-[[Uaefv|cave]] hna. [[Daefv|veil]] hna.
-[[Ihwhei'talla|burial duty]] — neh lihr.
+[[Uaefv|uaefv]] hna. [[Daefv|daefv]] hna.
+[[Ihwhei'talla|ihwhei'talla]] — neh lihr.
 Neh arhem'sahe hna.
 
-Au [[ejhoi|to choose with finality]] — rh'aen hna.
-Au [[ejhoi|to choose with finality]] — ssaed hna.
+Au [[ejhoi|ejhoi]] — rh'aen hna.
+Au [[ejhoi|ejhoi]] — ssaed hna.
 
-Au [[ejhoi|to choose with finality]] gaeth — firh.
+Au [[ejhoi|ejhoi]] gaeth — firh.
 Neh steirhn — laorh firh.
 
 Na — Antigone.
-Veoth'ei — [[ejhoi|to choose with finality]].
+Veoth'ei — [[ejhoi|ejhoi]].
 
-Au [[ejhoi|to choose with finality]] — rh'aen hna.
+Au [[ejhoi|ejhoi]] — rh'aen hna.
 
 Haemon firh — Okhala.
-Gaeth hrrau [[afvu|darkness]] — hna [[tam|still / quiet]].
-Phralae [[uan|grief/anguish]] — neh [[haenhe|hands/arms]].
-[[Mosaram|wind / weather]] — rhe — [[afvu|darkness]].
+Gaeth hrrau [[afvu|afvu]] — hna [[tam|tam]].
+Phralae [[uan|uan]] — neh [[haenhe|haenhe]].
+[[Mosaram|mosaram]] — rhe — [[afvu|afvu]].
 
-Gaeth hrrau fvillha — [[uaefv|cave]].
-Creon — hisl u' [[haenhe|hands/arms]].
-Haemon [[heisae|to die]] — [[tam|still / quiet]].
-Fvillha hhaemn — [[afvu|darkness]].
+Gaeth hrrau fvillha — [[uaefv|uaefv]].
+Creon — hisl u' [[haenhe|haenhe]].
+Haemon [[heisae|heisae]] — [[tam|tam]].
+Fvillha hhaemn — [[afvu|afvu]].
 
-Nneikha lehrei — [[khoi|to lock / close off]].
-Gaeth [[ejhoi|to choose with finality]] — hlra diamn.
-Eurydice vaed — [[khoi|to lock / close off]].
-Phralae [[fvoerrh|last / final]] — [[uan'lihr|grief-proclamation / dying curse]].
+Nneikha lehrei — [[khoi|khoi]].
+Gaeth [[ejhoi|ejhoi]] — hlra diamn.
+Eurydice vaed — [[khoi|khoi]].
+Phralae [[fvoerrh|fvoerrh]] — [[uan'lihr|uan'lihr]].
 
-Rrh'e ihwhei — fvillha [[khoi|to lock / close off]].
+Rrh'e ihwhei — fvillha [[khoi|khoi]].
 Gaeth hrrau — rhe hna diamn.
-Ve' itaeru — [[khoi|to lock / close off]].
-Phralae [[fvoerrh|last / final]] — [[uan'lihr|grief-proclamation / dying curse]].
+Ve' itaeru — [[khoi|khoi]].
+Phralae [[fvoerrh|fvoerrh]] — [[uan'lihr|uan'lihr]].
 
 Fvil neh fvillha'rhienn —
-(phralae — [[afvu|darkness]])
+(phralae — [[afvu|afvu]])
 Heis'an rhienn'sahe ulhei —
-(phralae — hrrau [[fvaerh|stone]])
+(phralae — hrrau [[fvaerh|fvaerh]])
 I-jol neh rhai —
-(Haemon — [[haenhe|hands/arms]])
-[[Uan|grief/anguish]] neh hssai —
+(Haemon — [[haenhe|haenhe]])
+[[Uan|uan]] neh hssai —
 (Eurydice — hrrau kholhr)
 Fvillha — neh akheamn —
-(Creon — [[hwaveyiir|command hall / empty throne room]] [[afvu|darkness]])
-[[Rhienn'laorh|blood-catastrophe]] —
-(Creon — [[hwaveyiir|command hall / empty throne room]] [[afvu|darkness]])
+(Creon — [[hwaveyiir|hwaveyiir]] [[afvu|afvu]])
+[[Rhienn'laorh|rhienn'laorh]] —
+(Creon — [[hwaveyiir|hwaveyiir]] [[afvu|afvu]])
 En.
 En.
 
